@@ -1,0 +1,38 @@
+To Do list
+
+-creación de gráficos
+  -menú
+  -elementos del juego
+    -terreno
+      -fondo
+      -barra
+      -límites
+    -obstáculos
+    -jugadores
+      -diferentes figuras x9
+    -bolita especial :3
+  -botones
+-mecánica de juego
+  -mecáncia del juego
+    -condiciones de pérdida
+    -condiciones de victoria
+    -condiciones de BONUS
+      -time
+      -catch
+  -motor del juego
+    -movimiento de los obstáculos
+    -colisiones
+    -rebote de los obstáculos
+    -velocidad de los obstáculos
+    -cambios de posición de la barra
+    -movimiento del jugador
+    -timer
+-atributos del jugador
+  -tamaño
+  -velocidad
+  -tiempo transcurrido del último BONUS
+  -bandera de uso
+-conexiones //por investigar
+  -sincronizar juegos
+  -encontrar jugador
+  -servidor
