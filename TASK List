@@ -1,17 +1,17 @@
 To Do list
 
 -creación de gráficos
-  -menú
-  -elementos del juego
+  -menú*
+  -elementos del juego--
     -terreno
       -fondo
       -barra
       -límites
-    -obstáculos
-    -jugadores
+    -obstáculos--
+    -jugadores*
       -diferentes figuras x9
-    -bolita especial :3
-  -botones
+    -bolita especial :3--
+  -botones*
 -mecánica de juego
   -mecáncia del juego
     -condiciones de pérdida
