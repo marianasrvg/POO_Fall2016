@@ -1,0 +1,13 @@
+Barra- 56E0FF
+Obstaculos - 
+azul 268AEF 
+rosa FF6890 
+verde obstaculo - 7FFF8E
+Fondo-000000
+Player-
+amarillo claro- FEFFC4
+Info
+gris - 808080
+gris oscuro- 404040
+Timer
+blanco- no blanco F2F6FF
