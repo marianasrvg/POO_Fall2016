@@ -1,0 +1,15 @@
+Stuff to do:
+  -icono general*
+  -algoritmo del angulo de rebote
+  -bonus*
+    time: escudo, mult, inmunidad barras
+    points: barra mov horizontal, cambio de color de los sprites.
+  -bordes de color
+  -mantener los controles activos*
+  -arreglar algoritmo de rebote
+  -(opcional)updates messages
+  -Window menu*
+  -asociar la pausa a una tecla*
+  -animacion de colision
+  -sonidos*
+  -musica*
