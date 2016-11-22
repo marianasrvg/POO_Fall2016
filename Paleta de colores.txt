@@ -11,3 +11,5 @@ gris - 808080
 gris oscuro- 404040
 Timer
 blanco- no blanco F2F6FF
+BONUS
+naranja- FF7F16
