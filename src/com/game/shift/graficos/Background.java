@@ -10,6 +10,7 @@ import javax.swing.*;
 import com.game.shift.Screen;
 import com.game.shift.Timing;
 import com.game.shift.entity.mob.Barra;
+import com.game.shift.entity.mob.Bonus;
 import com.game.shift.entity.mob.Mob;
 import com.game.shift.entity.mob.Obstacle;
 import com.game.shift.entity.mob.PlayerOne;
@@ -35,6 +36,7 @@ public class Background extends Canvas implements Runnable{
 	private Obstacle obstaculo[] = new Obstacle[N_OBS];
 	private Barra barra;
 	private Timing timer = new Timing();
+	private Bonus tbonus;
 	
 	private BufferedImage image = new BufferedImage(width_p, height_p, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
@@ -55,6 +57,7 @@ public class Background extends Canvas implements Runnable{
 			obstaculo[i+(N_OBS/2)] = new Obstacle(key,2);
 		}
 		barra = new Barra(key);
+		tbonus = new Bonus(timer);
 		frameCaracteristicas();
 				
 	}
@@ -124,6 +127,10 @@ public class Background extends Canvas implements Runnable{
 		for(int i = 0; i < obstaculo.length; i++){
 			obstaculo[i].update(screen);
 		}
+		tbonus.update(screen, timer);
+		if(tbonus.active){
+			tbonus.update(screen, timer);
+		}
 		//playerone.collisionObstaculos(screen);
 	}
 	
@@ -141,7 +148,9 @@ public class Background extends Canvas implements Runnable{
 		for(int i = 0; i < obstaculo.length; i++){
 			obstaculo[i].render(screen);
 		}
-		
+		if(tbonus.active){
+			tbonus.render(screen);
+		}
 		
 		
 		barra.render(screen);
