@@ -14,6 +14,7 @@ public class Sprite {
 	public static Sprite obstaculo_pink = new Sprite (4, 2, 0, SpriteSheet.bolitas);
 	public static Sprite informacion = new Sprite (16,3,2, SpriteSheet.tiles);
 	public static Sprite bonus_t = new Sprite(6,0,0,SpriteSheet.bonus);
+	public static Sprite contorno = new Sprite(16,0,2, SpriteSheet.tiles);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet){
 		SIZE = size;

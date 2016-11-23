@@ -13,3 +13,4 @@ Timer
 blanco- no blanco F2F6FF
 BONUS
 naranja- FF7F16
+Contorno - 51C4FF

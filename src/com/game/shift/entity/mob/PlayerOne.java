@@ -63,9 +63,13 @@ public class PlayerOne extends Mob {
 	
 	private boolean collisionBarra(Screen screen){
 		try{
-			if(screen.pixels[(x+y*Background.width_p)+7] == 0xFF56E0FF){
-				setPoints(-5);
-				return true;
+			for(int i = -1; i < 8; i++){
+				for(int j = -1; j < 8; j++){
+					if(screen.pixels[((x+j)+(y+i)*Background.width_p)] == 0xFF56E0FF){
+						setPoints(-5);
+						return true;
+					}
+				}
 			}
 		}catch (Exception e){
 			return true;

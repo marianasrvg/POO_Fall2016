@@ -29,6 +29,30 @@ public class Screen {
 				pixels[x+y*width] = Sprite.informacion.pixels[(x&15)+(y&15)* Sprite.informacion.SIZE];
 			}
 		}
+		paintMarco();
+	}
+	
+	private void paintMarco(){
+		for( int y = 9; y < 11; y++){
+			for (int x = 0; x < width; x++){
+				pixels[x+y*width] = Sprite.contorno.pixels[(x&15)+((y-9)&15)* Sprite.contorno.SIZE];
+			}
+		}
+		for(int y = 9; y < height; y++){
+			for(int x = (width-2); x < width; x++){
+				pixels[x+y*width] = Sprite.contorno.pixels[(x&15)+((y-9)&1)* Sprite.contorno.SIZE];
+			}
+		}
+		for(int y = 9; y < height; y++){
+			for(int x = 0; x < 2; x++){
+				pixels[x+y*width] = Sprite.contorno.pixels[(x&15)+((y-9)&1)* Sprite.contorno.SIZE];
+			}
+		}
+		for(int y = height-2; y < height; y++){
+			for(int x = 0; x < width; x++){
+				pixels[x+y*width] = Sprite.contorno.pixels[(x&15)+((y-9)&1)* Sprite.contorno.SIZE];
+			}
+		}
 	}
 	
 	public void renderMob(int xp, int yp,  Sprite sprite, int px){
