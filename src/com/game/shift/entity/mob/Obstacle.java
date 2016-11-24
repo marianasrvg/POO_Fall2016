@@ -66,6 +66,7 @@ public class Obstacle extends Mob {
 		if(lado_terreno == 2)
 			x = (int)(Math.random()* ((Barra.posX+Sprite.obstaculo_pink.SIZE)-(Background.width_p-Sprite.BORDE))+ Background.width_p-Sprite.BORDE);
 		y =(int)(Math.random()*((Sprite.INFO+Sprite.BORDE)-(Background.height_p-Sprite.BORDE*2))+ Background.height_p-Sprite.BORDE*2);
+		//if x, y in range pos player again
 	}
 	
 	public void render(Screen screen){
