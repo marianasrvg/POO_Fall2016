@@ -6,6 +6,7 @@ public class Sprite {
 	public int[] pixels;
 	private SpriteSheet sheet;
 	public static final int BORDE = 3;
+	public static final int INFO = 10;
 	
 	public static Sprite universe = new Sprite (16, 0, 0, SpriteSheet.tiles);
 	public static Sprite player = new Sprite(8, 0, 0, SpriteSheet.player);

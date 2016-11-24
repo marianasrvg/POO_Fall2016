@@ -27,10 +27,10 @@ public class Obstacle extends Mob {
 		if(collisionBarra(screen)) {
 			vx*= -1;
 		}
-		if( x + vx >= Background.width_p)  vx *= -1;
+		if( x + vx >= Background.width_p - (Sprite.BORDE+2))  vx *= -1;
 		if( x + vx <= 0)  vx *= -1;
-		if( y + vy >= Background.height_p)  vy *= -1;
-		if( y + vy <= 9)  vy *= -1;
+		if( y + vy >= Background.height_p - (Sprite.BORDE+2))  vy *= -1;
+		if( y + vy <= Sprite.INFO)  vy *= -1;
 		
 		x += vx;
 		y += vy;
@@ -64,8 +64,8 @@ public class Obstacle extends Mob {
 		if(lado_terreno == 1)
 			x = (int)(Math.random()*(Sprite.BORDE - (Barra.posX-Sprite.obstaculo_blue.SIZE)) + Barra.posX-Sprite.obstaculo_blue.SIZE);
 		if(lado_terreno == 2)
-			x = (int)(Math.random()* ((Barra.posX+Sprite.obstaculo_pink.SIZE)-(Background.width_p+Sprite.BORDE))+ Background.width_p+Sprite.BORDE);
-		y =(int)(Math.random()*((Sprite.informacion.SIZE+Sprite.BORDE)-(Background.height_p+Sprite.BORDE))+ Background.height_p+Sprite.BORDE);
+			x = (int)(Math.random()* ((Barra.posX+Sprite.obstaculo_pink.SIZE)-(Background.width_p-Sprite.BORDE))+ Background.width_p-Sprite.BORDE);
+		y =(int)(Math.random()*((Sprite.INFO+Sprite.BORDE)-(Background.height_p-Sprite.BORDE*2))+ Background.height_p-Sprite.BORDE*2);
 	}
 	
 	public void render(Screen screen){

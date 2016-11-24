@@ -25,11 +25,11 @@ public class Bonus extends Mob {
 	public void move(Screen screen) {
 		if (x + vx > Background.width_p - Sprite.bonus_t.SIZE)
 			vx *= -1;
-		if (x + vx <= 0)
+		if (x + vx <= Sprite.BORDE)
 			vx *= -1;
 		if (y + vy > Background.height_p - Sprite.bonus_t.SIZE)
 			vy *= -1;
-		if (y + vy <= 9)
+		if (y + vy <= Sprite.INFO)
 			vy *= -1;
 
 		x += vx;
@@ -37,8 +37,8 @@ public class Bonus extends Mob {
 	}
 
 	private void spawnRand() {
-		x = (int) (Math.random() * (Sprite.BORDE - (Background.width_p+Sprite.BORDE)) + (Background.width_p+Sprite.BORDE));
-		y = (int) (Math.random() * ((Sprite.BORDE+Sprite.informacion.SIZE)-(Background.height_p + Sprite.BORDE ))+ (Background.height_p + Sprite.BORDE ));
+		x = (int) (Math.random() * (Sprite.BORDE - (Background.width_p-Sprite.BORDE)) + (Background.width_p-Sprite.BORDE));
+		y = (int) (Math.random() * ((Sprite.BORDE+Sprite.INFO)-(Background.height_p - Sprite.BORDE ))+ (Background.height_p - Sprite.BORDE ));
 	}
 
 	public void render(Screen screen) {
