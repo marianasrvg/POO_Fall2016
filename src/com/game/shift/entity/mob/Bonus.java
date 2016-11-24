@@ -9,11 +9,9 @@ public class Bonus extends Mob {
 
 	public boolean taken = false;
 	public boolean active = false;
-	// private int lado = 1;
-	private int vx = 1, vy = 1;
+	
 
 	public Bonus(Timing t) {
-		// this.lado = lado;
 		spawnRand();
 		activate(t);
 	}
@@ -25,11 +23,11 @@ public class Bonus extends Mob {
 	}
 
 	public void move(Screen screen) {
-		if (x + vx >= Background.width_p)
+		if (x + vx > Background.width_p - Sprite.bonus_t.SIZE)
 			vx *= -1;
 		if (x + vx <= 0)
 			vx *= -1;
-		if (y + vy >= Background.height_p)
+		if (y + vy > Background.height_p - Sprite.bonus_t.SIZE)
 			vy *= -1;
 		if (y + vy <= 9)
 			vy *= -1;
@@ -39,8 +37,8 @@ public class Bonus extends Mob {
 	}
 
 	private void spawnRand() {
-		x = (int) (Math.random() * Background.width_p);
-		y = (int) (Math.random() * Background.height_p);
+		x = (int) (Math.random() * (Background.width_p - Sprite.BORDE)) + Sprite.BORDE;
+		y = (int) (Math.random() * (Background.height_p- Sprite.BORDE))+ Sprite.BORDE + Sprite.informacion.SIZE;
 	}
 
 	public void render(Screen screen) {
@@ -55,8 +53,7 @@ public class Bonus extends Mob {
 		} else if (this.taken == true) {
 			this.active = false;
 			this.taken = false;
-		}
-		
+		}		
 		mult *= 1;
 	}
 

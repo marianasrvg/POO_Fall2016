@@ -7,7 +7,7 @@ import com.game.shift.graficos.Sprite;
 public class Obstacle extends Mob {
 
 	private int lado_terreno = 1;
-	private int vx = 1, vy = 1;
+	
 	
 
 	public Obstacle(int lado){

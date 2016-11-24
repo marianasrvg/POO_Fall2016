@@ -56,7 +56,7 @@ public class Background extends Canvas implements Runnable{
 			obstaculo[i] = new Obstacle(1);
 			obstaculo[i+(N_OBS/2)] = new Obstacle(2);
 		}
-		barra = new Barra(key);
+		barra = new Barra();
 		tbonus = new Bonus(timer);
 		frameCaracteristicas();
 				
@@ -131,7 +131,6 @@ public class Background extends Canvas implements Runnable{
 		if(tbonus.active){
 			tbonus.update(screen, timer);
 		}
-		//playerone.collisionObstaculos(screen);
 	}
 	
 	public void render(){
@@ -166,7 +165,6 @@ public class Background extends Canvas implements Runnable{
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(new Color(0xF2F6FF));
 		g.setFont(new Font("Hyperspace", 0, 16));
-		//System.out.println(timer.timerString());
 		g.drawString(timer.timerString(), (width_p/2)*scale-30, 20);
 		g.drawString(playerone.toString(), 10, 20);
 		g.drawString(playertwo.toString(), 280*scale, 20);

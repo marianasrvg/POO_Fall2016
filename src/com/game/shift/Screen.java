@@ -58,7 +58,7 @@ public class Screen {
 	public void renderMob(int xp, int yp,  Sprite sprite, int px){
 		xp -= xOffset;
 		yp -= yOffset;
-		for(int y = 0; y< px;y++){
+		for(int y = 0; y< px; y++){
 			int ya= y+yp;
 			for(int x = 0; x < px; x++){
 				int xa = x +xp;
