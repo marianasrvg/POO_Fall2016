@@ -47,8 +47,8 @@ public class Player extends Mob {
 	
 	protected void collisionObstaculos(Screen screen){
 		try{
-			for(int i = 0; i < 8; i++){
-				for(int j = 0; j < 8; j++){
+			for(int i = 0; i < Sprite.player.SIZE; i++){
+				for(int j = 0; j < Sprite.player.SIZE; j++){
 					if(screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFF7FFF8E || screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFFFF6890) {
 						if(!take){ 
 							setPoints(-1);
