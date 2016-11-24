@@ -3,18 +3,14 @@ package com.game.shift.entity.mob;
 import com.game.shift.Screen;
 import com.game.shift.graficos.Background;
 import com.game.shift.graficos.Sprite;
-import com.game.shift.input.Keyboard;
 
 public class Obstacle extends Mob {
 
-	private Keyboard input;	
 	private int lado_terreno = 1;
 	private int vx = 1, vy = 1;
 	
-	
 
-	public Obstacle(Keyboard input, int lado){
-		this.input = input;
+	public Obstacle(int lado){
 		this.lado_terreno = lado;
 		posRandom();
 	}
@@ -66,20 +62,6 @@ public class Obstacle extends Mob {
 
 	private void posRandom(){
 		if(lado_terreno == 1)
-	/*		switch (s){
-				case 1:
-					x = (int)(Math.random()*Background.width_p/4-3)+Background.width_p/4;
-					break;
-				case 2:
-					x = (int)(Math.random()*Background.width_p/4-3);
-					break;
-		/*		case 3:
-					x = (int)(Math.random()*Background.width_p/2-3)+Background.width_p/4;
-					break;
-				case 4:
-					x = (int)(Math.random()*Background.width_p/2-3)+Background.width_p/4;
-					break;
-				}*/
 			x = (int)(Math.random()*(Barra.posX - 3));
 		if(lado_terreno == 2)
 			x = (int)(Math.random()* Barra.posX + 3) + Barra.posX;

@@ -2,33 +2,15 @@ package com.game.shift.entity.mob;
 
 import com.game.shift.Screen;
 import com.game.shift.graficos.Background;
-import com.game.shift.graficos.Sprite;
 import com.game.shift.input.Keyboard;
 
-public class PlayerTwo extends Mob {
-	private Keyboard input;
-	private int points;
-	private boolean take = false;
+public class PlayerTwo extends Player {
 	
 	public PlayerTwo(Keyboard input){
-		this.input = input;
+		super(input);
 		posRandom();
-		points = 10;
 	}
 	
-	public void setPoints(int x){
-		points += x;
-	}
-	public int getPoints(){
-		return points;
-	}
-	
-	public String toString(){
-		if (getPoints()<0) return "0";
-		return String.valueOf(getPoints());
-	}
-	
-
 	public void update(Screen screen){
 		collisionObstaculos(screen);
 		int xa = 0, ya = 0;
@@ -58,44 +40,8 @@ public class PlayerTwo extends Mob {
 			
 	}
 	
-	private boolean collisionBarra(Screen screen){
-		try{
-			if(screen.pixels[(x+y*Background.width_p)] == 0xFF56E0FF){
-				setPoints(-5);
-				return true;
-			}
-		}catch (Exception e){
-			return true;
-		}
-		return false;
-	}
-	
-	public void collisionObstaculos(Screen screen){
-		try{
-			for(int i = 0; i < 8; i++){
-				for(int j = 0; j < 8; j++){
-					if(screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFF7FFF8E || screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFFFF6890) {
-						if(!take){ 
-							setPoints(-1);
-							take = true;
-						}
-					}
-				}
-			}
-		} catch (Exception e){
-			//System.out.println("die");
-		}
-		take = false;
-		return;
-	}
-	
 	private void posRandom(){
-		x = (int)(Math.random()* Barra.posX +10) + Barra.posX;
-		y = 10 + (int)(Math.random()*Background.height_p);
+		x = 3*Background.width_p/4;
+		y = Background.height_p/2;
 	}
-	
-	public void render(Screen screen){
-		screen.renderMob(x, y, Sprite.player, 8);
-	}
-	
 }

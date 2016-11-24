@@ -11,8 +11,8 @@ import com.game.shift.Screen;
 import com.game.shift.Timing;
 import com.game.shift.entity.mob.Barra;
 import com.game.shift.entity.mob.Bonus;
-import com.game.shift.entity.mob.Mob;
 import com.game.shift.entity.mob.Obstacle;
+import com.game.shift.entity.mob.Player;
 import com.game.shift.entity.mob.PlayerOne;
 import com.game.shift.entity.mob.PlayerTwo;
 import com.game.shift.input.Keyboard;
@@ -53,8 +53,8 @@ public class Background extends Canvas implements Runnable{
 		playerone = new PlayerOne(key);
 		playertwo = new PlayerTwo(key);
 		for(int i = 0; i < N_OBS/2; i++){
-			obstaculo[i] = new Obstacle(key, 1);
-			obstaculo[i+(N_OBS/2)] = new Obstacle(key,2);
+			obstaculo[i] = new Obstacle(1);
+			obstaculo[i+(N_OBS/2)] = new Obstacle(2);
 		}
 		barra = new Barra(key);
 		tbonus = new Bonus(timer);
@@ -156,8 +156,8 @@ public class Background extends Canvas implements Runnable{
 		barra.render(screen);
 		timer.render();
 		if(timer.itsTime()){
-			playerone.setPoints(Mob.mPoints);
-			playertwo.setPoints(Mob.mPoints);
+			playerone.setPoints(Player.mPoints);
+			playertwo.setPoints(Player.mPoints);
 		}
 		for(int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];
