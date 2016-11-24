@@ -4,7 +4,7 @@ Stuff to do:
   -bonus*
     time: escudo, mult, inmunidad barras (Martin)
     points: barra mov horizontal, cambio de color de los sprites. (Mariana)
-  -bordes de color (Mariana)
+  +++++++++++bordes de color (Mariana)
   -mantener los controles activos*
   -arreglar algoritmo de rebote (Mariana)
   -(opcional)updates messages (Mariana)
