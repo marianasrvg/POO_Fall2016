@@ -62,10 +62,10 @@ public class Obstacle extends Mob {
 
 	private void posRandom(){
 		if(lado_terreno == 1)
-			x = (int)(Math.random()*(Barra.posX - 3));
+			x = (int)(Math.random()*(Sprite.BORDE - (Barra.posX-Sprite.obstaculo_blue.SIZE)) + Barra.posX-Sprite.obstaculo_blue.SIZE);
 		if(lado_terreno == 2)
-			x = (int)(Math.random()* Barra.posX + 3) + Barra.posX;
-		y =(int)(Math.random()*Background.height_p)+10;
+			x = (int)(Math.random()* ((Barra.posX+Sprite.obstaculo_pink.SIZE)-(Background.width_p+Sprite.BORDE))+ Background.width_p+Sprite.BORDE);
+		y =(int)(Math.random()*((Sprite.informacion.SIZE+Sprite.BORDE)-(Background.height_p+Sprite.BORDE))+ Background.height_p+Sprite.BORDE);
 	}
 	
 	public void render(Screen screen){
