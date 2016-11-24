@@ -127,7 +127,7 @@ public class Background extends Canvas implements Runnable{
 		for(int i = 0; i < obstaculo.length; i++){
 			obstaculo[i].update(screen);
 		}
-		tbonus.update(screen, timer);
+		//tbonus.update(screen, timer);
 		if(tbonus.active){
 			tbonus.update(screen, timer);
 		}

@@ -28,11 +28,13 @@ public class PlayerOne extends Player {
 		if(ya > 0) dir = 2;
 		if(ya < 0) dir = 0;
 		
-		if(collisionBarra(screen)) xa--;
-	
+		if ( dir == 1 && collisionBarra(screen)) xa--;
+		if( dir == 3 && collisionBarra(screen)) xa++;
+		if( dir == 2 && collisionBarra(screen)) ya--;
+		
 		if( x + xa >= Background.width_p-8) xa--;
 		if( x + xa <= 0) xa++;
-		if( y + ya >= Background.height_p-8) y--;
+		if( y + ya >= Background.height_p-8) ya--;
 		if( y + ya <= 10) ya++;
 		
 		x += xa;
