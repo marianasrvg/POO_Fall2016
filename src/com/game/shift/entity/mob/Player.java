@@ -9,6 +9,8 @@ public class Player extends Mob {
 	protected Keyboard input;
 	protected int points;
 	protected boolean take = false;
+	protected boolean arrBonus[] = {false, false, false};
+	protected boolean activBonus = false;
 	public static int mPoints = 10;
 	
 	public Player(Keyboard input){
@@ -105,7 +107,6 @@ public class Player extends Mob {
 						}
 					}
 				}
-<<<<<<< HEAD
 				break;
 			case 2:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
@@ -133,7 +134,6 @@ public class Player extends Mob {
 					}
 				}
 				break;		
-=======
 			}
 		}catch(Exception e){
 			
@@ -165,7 +165,6 @@ public class Player extends Mob {
 	
 =======
 	*/
->>>>>>> origin/master
 	public void render(Screen screen){
 		
 		if(arrBonus[1]){
@@ -184,8 +183,8 @@ public class Player extends Mob {
 		
 		if ( dir == 0 && collisionBorder(screen, dir)) ya++;
 		if ( dir == 1 && collisionBorder(screen, dir)) xa--;
-		if( dir == 2 && collisionBorder(screen, dir)) ya--;
-		if( dir == 3 && collisionBorder(screen, dir)) xa++;
+		if ( dir == 2 && collisionBorder(screen, dir)) ya--;
+		if ( dir == 3 && collisionBorder(screen, dir)) xa++;
 		
 		x += xa;
 		y += ya;
