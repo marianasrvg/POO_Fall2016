@@ -143,8 +143,8 @@ public class Player extends Mob {
 		
 		if ( dir == 0 && collisionBorder(screen, dir)) ya++;
 		if ( dir == 1 && collisionBorder(screen, dir)) xa--;
-		if( dir == 2 && collisionBorder(screen, dir)) ya--;
-		if( dir == 3 && collisionBorder(screen, dir)) xa++;
+		if ( dir == 2 && collisionBorder(screen, dir)) ya--;
+		if ( dir == 3 && collisionBorder(screen, dir)) xa++;
 		
 		x += xa;
 		y += ya;
