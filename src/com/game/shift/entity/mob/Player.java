@@ -17,7 +17,11 @@ public class Player extends Mob {
 	}
 	
 	public void setPoints(int x){
-		points += x;
+		if(arrBonus[0]){
+			points += (2*x);
+		}else{
+			points += x;
+		}
 	}
 	
 	public int getPoints(){
@@ -82,6 +86,10 @@ public class Player extends Mob {
 								take = true;
 							}
 						}
+						if(!take && arrBonus[1]){
+							//No se modifican los puntos y eso asi que aqui no se manda a llamar la funcion
+							take = true;
+						}
 					}
 				}
 				break;
@@ -97,6 +105,7 @@ public class Player extends Mob {
 						}
 					}
 				}
+<<<<<<< HEAD
 				break;
 			case 2:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
@@ -124,14 +133,46 @@ public class Player extends Mob {
 					}
 				}
 				break;		
+=======
+			}
+		}catch(Exception e){
+			
+		}
+	}
+	
+	protected void setBonusActive(){
+		if(this.activBonus){
+			int rand = (int)(Math.random() * (3));
+			arrBonus[rand] = true;
+		}
+	}
+	/*
+	protected void wichBonus(){
+		if(arrBonus[0]){
+			//hacer puntos por 2
+			
+		}
+		if(arrBonus[1]){
+			//inmune a colisiones con objetos(escudito)
+>>>>>>> origin/master
 		}
 		} catch (Exception e){
 		}
 		take = false;
 		return;
 	}
+<<<<<<< HEAD
 	
+=======
+	*/
+>>>>>>> origin/master
 	public void render(Screen screen){
+		
+		if(arrBonus[1]){
+			//Cambiar el render al del jugador con escutido y asi. 
+			screen.renderMob(x, y, Sprite.player, 8);
+		}
+		
 		screen.renderMob(x, y, Sprite.player, 8);
 	}
 
