@@ -9,6 +9,9 @@ public class Player extends Mob {
 	protected Keyboard input;
 	protected int points;
 	protected boolean take = false;
+	protected boolean activBonus = false;
+	protected boolean arrBonus[] = {false, false, false};
+	protected boolean pointsBonus = false;
 	public static int mPoints = 10;
 	
 	public Player(Keyboard input){
@@ -62,6 +65,43 @@ public class Player extends Mob {
 		take = false;
 		return;
 	}
+	
+	protected void collisionBonus(Screen screen){
+		try{
+			for(int i = 0; i < Sprite.bonus_t.SIZE; i++){
+				for(int j = 0; j < Sprite.bonus_t.SIZE; j++){
+					if(screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFFFF7F16 || screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFFFF7F16){
+						this.activBonus = true;
+					}else{
+						
+					}
+				}
+			}
+		}catch(Exception e){
+			
+		}
+	}
+	
+	protected void setBonusActive(){
+		if(this.activBonus){
+			int rand = (int)(Math.random() * (3));
+			arrBonus[rand] = true;
+		}
+	}
+	
+	protected void wichBonus(){
+		if(arrBonus[0]){
+			//hacer puntos por 2
+		}
+		if(arrBonus[1]){
+			//inmune a colisiones con objetos(escudito)
+		}
+		if(arrBonus[2]){
+			//inmune a las colisiones con las barras
+		}
+	}
+	
+	protected void 
 	
 	public void render(Screen screen){
 		screen.renderMob(x, y, Sprite.player, 8);
