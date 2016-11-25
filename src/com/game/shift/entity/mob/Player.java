@@ -77,64 +77,68 @@ public class Player extends Mob {
 	
 	protected void collisionObstacle(Screen screen, int dir){
 		try{
-			switch(dir){
-			case 0:
+			//switch(dir){
+			//case 0:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
 					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+i)+(y-vy+j)*Background.width_p] == 0xFF7FFF8E || 
-								screen.pixels[(x+i)+(y-vy+j)*Background.width_p] == 0xFFFF6890){
+						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == 0xFF7FFF8E || 
+								screen.pixels[(x+j)+(y+i)*Background.width_p] == 0xFFFF6890){
 							if(!take && arrBonus[1]){
 								//No se modifican los puntos y eso asi que aqui no se manda a llamar la funcion
 								take = true;
 							}
 							if(!take){
+								System.out.println("true");
 								setPoints(-1);
 								take = true;
 							}
 						}
 					}
 				}
-				break;
-			case 1:
-				for(int i = 0; i < Sprite.player.SIZE; i++){
+				//break;
+			//case 1:
+	/*			for(int i = 0; i < Sprite.player.SIZE; i++){
 					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+i+vx)+(y+j)*Background.width_p] == 0xFF7FFF8E || 
-								screen.pixels[(x+i+vx)+(y+j)*Background.width_p] == 0xFFFF6890){
+						if(screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFF7FFF8E || 
+								screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFFFF6890){
 							if(!take){
+								System.out.println("true");
 								setPoints(-1);
 								take = true;
 							}
 						}
 					}
 				}
-				break;
-			case 2:
+				//break;
+			//case 2:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
 					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+j)+(y+i+vy)*Background.width_p] == 0xFF7FFF8E ||
-								screen.pixels[(x+j)+(y+i+vy)*Background.width_p] == 0xFFFF6890){
+						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == 0xFF7FFF8E ||
+								screen.pixels[(x+j)+(y+i)*Background.width_p] == 0xFFFF6890){
 							if(!take){
+								System.out.println("true");
 								setPoints(-1);
 								take = true;
 							}	
 						}
 					}
 				}
-				break;
-			case 3:
+			//	break;
+			//case 3:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
 					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x-vx+i)+(y+j)*Background.width_p] == 0xFF7FFF8E ||
-								screen.pixels[(x-vx+i)+(y+j)*Background.width_p] == 0xFFFF6890){
+						if(screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFF7FFF8E ||
+								screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFFFF6890){
 							if(!take){
+								System.out.println("true");
 								setPoints(-1);
 								take = true;
 							}
 						}
 					}
-				}
-				break;		
-			}
+				}*/
+			//	break;		
+		//	}
 		}catch(Exception e){
 			
 		}

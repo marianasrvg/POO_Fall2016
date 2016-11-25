@@ -6,7 +6,7 @@ Stuff to do:
     points: barra mov horizontal, cambio de color de los sprites. (Mariana)
   +++++++++++bordes de color (Mariana)
   -mantener los controles activos*
-  -arreglar algoritmo de rebote (Mariana)
+  -arreglar algoritmo de rebote de los obstaculos con lo azul (Mariana)
   -(opcional)updates messages (Mariana)
   -Window menu* (Martin)
   -asociar la pausa a una tecla* (Martin)
