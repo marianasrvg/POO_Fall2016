@@ -9,9 +9,6 @@ public class Player extends Mob {
 	protected Keyboard input;
 	protected int points;
 	protected boolean take = false;
-	protected boolean activBonus = false;
-	protected boolean arrBonus[] = {false, false, false};
-	protected boolean pointsBonus = false;
 	public static int mPoints = 10;
 	
 	public Player(Keyboard input){
@@ -32,7 +29,7 @@ public class Player extends Mob {
 		return String.valueOf(getPoints());
 	}
 	
-	protected boolean collisionBorde(Screen screen, int dir){
+	protected boolean collisionBorder(Screen screen, int dir){
 		try{
 			switch(dir){
 				case 0:
@@ -72,60 +69,67 @@ public class Player extends Mob {
 		return false;
 	}
 	
-	protected void collisionObstaculos(Screen screen){
+	protected void collisionObstacle(Screen screen, int dir){
 		try{
-			for(int i = 0; i < Sprite.player.SIZE; i++){
-				for(int j = 0; j < Sprite.player.SIZE; j++){
-					if(screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFF7FFF8E || screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFFFF6890) {
-						if(!take){ 
-							setPoints(-1);
-							take = true;
+			switch(dir){
+			case 0:
+				for(int i = 0; i < Sprite.player.SIZE; i++){
+					for(int j = 0; j < Sprite.player.SIZE; j++){
+						if(screen.pixels[(x+i)+(y-vy+j)*Background.width_p] == 0xFF7FFF8E || 
+								screen.pixels[(x+i)+(y-vy+j)*Background.width_p] == 0xFFFF6890){
+							if(!take){
+								setPoints(-1);
+								take = true;
+							}
 						}
 					}
 				}
-			}
+				break;
+			case 1:
+				for(int i = 0; i < Sprite.player.SIZE; i++){
+					for(int j = 0; j < Sprite.player.SIZE; j++){
+						if(screen.pixels[(x+i+vx)+(y+j)*Background.width_p] == 0xFF7FFF8E || 
+								screen.pixels[(x+i+vx)+(y+j)*Background.width_p] == 0xFFFF6890){
+							if(!take){
+								setPoints(-1);
+								take = true;
+							}
+						}
+					}
+				}
+				break;
+			case 2:
+				for(int i = 0; i < Sprite.player.SIZE; i++){
+					for(int j = 0; j < Sprite.player.SIZE; j++){
+						if(screen.pixels[(x+j)+(y+i+vy)*Background.width_p] == 0xFF7FFF8E ||
+								screen.pixels[(x+j)+(y+i+vy)*Background.width_p] == 0xFFFF6890){
+							if(!take){
+								setPoints(-1);
+								take = true;
+							}	
+						}
+					}
+				}
+				break;
+			case 3:
+				for(int i = 0; i < Sprite.player.SIZE; i++){
+					for(int j = 0; j < Sprite.player.SIZE; j++){
+						if(screen.pixels[(x-vx+i)+(y+j)*Background.width_p] == 0xFF7FFF8E ||
+								screen.pixels[(x-vx+i)+(y+j)*Background.width_p] == 0xFFFF6890){
+							if(!take){
+								setPoints(-1);
+								take = true;
+							}
+						}
+					}
+				}
+				break;		
+		}
 		} catch (Exception e){
 		}
 		take = false;
 		return;
 	}
-	
-	protected void collisionBonus(Screen screen){
-		try{
-			for(int i = 0; i < Sprite.bonus_t.SIZE; i++){
-				for(int j = 0; j < Sprite.bonus_t.SIZE; j++){
-					if(screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFFFF7F16 || screen.pixels[(x+j)+((y+i)*Background.width_p)] == 0xFFFF7F16){
-						this.activBonus = true;
-					}else{
-						
-					}
-				}
-			}
-		}catch(Exception e){
-			
-		}
-	}
-	
-	protected void setBonusActive(){
-		if(this.activBonus){
-			int rand = (int)(Math.random() * (3));
-			arrBonus[rand] = true;
-		}
-	}
-	
-	protected void wichBonus(){
-		if(arrBonus[0]){
-			//hacer puntos por 2
-		}
-		if(arrBonus[1]){
-			//inmune a colisiones con objetos(escudito)
-		}
-		if(arrBonus[2]){
-			//inmune a las colisiones con las barras
-		}
-	}
-	
-	protected void 
 	
 	public void render(Screen screen){
 		screen.renderMob(x, y, Sprite.player, 8);
@@ -137,10 +141,10 @@ public class Player extends Mob {
 		if(ya > 0) dir = 2;
 		if(ya < 0) dir = 0;
 		
-		if ( dir == 0 && collisionBorde(screen, dir)) ya++;
-		if ( dir == 1 && collisionBorde(screen, dir)) xa--;
-		if( dir == 2 && collisionBorde(screen, dir)) ya--;
-		if( dir == 3 && collisionBorde(screen, dir)) xa++;
+		if ( dir == 0 && collisionBorder(screen, dir)) ya++;
+		if ( dir == 1 && collisionBorder(screen, dir)) xa--;
+		if( dir == 2 && collisionBorder(screen, dir)) ya--;
+		if( dir == 3 && collisionBorder(screen, dir)) xa++;
 		
 		x += xa;
 		y += ya;
