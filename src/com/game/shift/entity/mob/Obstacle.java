@@ -50,6 +50,7 @@ public class Obstacle extends Mob {
 	
 	protected boolean collisionObstacle(Screen screen){
 		try{
+			
 			if(screen.pixels[x+y*Background.width_p] == 0xFF7FFF8E) 
 				return true;
 			if(screen.pixels[x+y*Background.width_p] == 0xFFFF6890) 
@@ -73,7 +74,6 @@ public class Obstacle extends Mob {
 		y =(int)(Math.random()*((Sprite.INFO+Sprite.BORDE)-(Background.height_p-Sprite.BORDE*2))+ Background.height_p-Sprite.BORDE*2);
 		if( y >= Background.height_p/2 && y <= (Background.height_p/2)+Sprite.obstaculo_blue.SIZE)
 			posRandom();
-		//if x, y in range pos player again
 	}
 	
 	public void render(Screen screen){
