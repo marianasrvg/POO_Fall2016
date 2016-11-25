@@ -12,6 +12,10 @@ public class Barra extends Mob {
 	public Barra(){
 	}
 	
+	public static void changePosX(int pos){
+		posX = pos;
+	}
+	
 	public Barra(int x, int y){
 		this.x = x;
 		this.y = y;
