@@ -12,7 +12,7 @@ public class PlayerTwo extends Player {
 	}
 	
 	public void update(Screen screen){
-		collisionObstaculos(screen);
+		collisionObstacle(screen, dir);
 		int xa = 0, ya = 0;
 		if(input.up2) ya--;
 		if(input.down2) ya++;
