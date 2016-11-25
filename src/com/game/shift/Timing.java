@@ -37,24 +37,25 @@ public class Timing {
 			if(time%10000 == 0){
 				dm = true;
 			}
-			if(time%100000 == 0){
+	/*		if(time%100000 == 0){
 				mll = true;
-			}
+			}*/
 		}
 		
 	}
 	
 	public String timerString(){
 		if(mll)
-			return String.valueOf(time);
+			return String.valueOf(time).substring(0, 4);
+		
 		if(dm)
-			return "0"+String.valueOf(time);
+			return "0"+String.valueOf(time).substring(0, 3);
 		if(m)
-			return "00"+String.valueOf(time);
+			return "00"+String.valueOf(time).substring(0, 2);
 		if(c)
-			return "000"+String.valueOf(time);
-		if(d)
-			return "0000"+String.valueOf(time);
-		return "00000"+String.valueOf(time);
+			return "000"+String.valueOf(time).substring(0, 1);
+		//if(d)
+		return "0000"+String.valueOf(time).substring(0, 0);
+		//return "00000"+String.valueOf(time).substring(0, 0);
 	}
 }
