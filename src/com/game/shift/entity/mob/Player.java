@@ -31,7 +31,7 @@ public class Player extends Mob {
 	
 	protected boolean collisionBorder(Screen screen, int dir){
 		try{
-			switch(dir){
+			switch(dir){//////
 				case 0:
 					if(screen.pixels[x+(y-vy)*Background.width_p] == 0xFF56E0FF){
 						setPoints(-5);
