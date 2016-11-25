@@ -29,15 +29,39 @@ public class Player extends Mob {
 		return String.valueOf(getPoints());
 	}
 	
-	protected boolean collisionBarra(Screen screen){
+	protected boolean collisionBorde(Screen screen, int dir){
 		try{
-			for(int i = -1; i < 8; i++){
-				for(int j = -1; j < 8; j++){
-					if(screen.pixels[((x+j)+(y+i)*Background.width_p)] == 0xFF56E0FF){
+			switch(dir){
+				case 0:
+					if(screen.pixels[x+(y-vy)*Background.width_p] == 0xFF56E0FF){
 						setPoints(-5);
 						return true;
 					}
-				}
+					break;
+				case 1:
+				//	for(int z = 0; z < vx; z++){ con esto podriamos checar con el cambio de velocidad
+					for(int i = 0; i < Sprite.player.SIZE; i++){
+							if(screen.pixels[(x+i+vx)+y*Background.width_p] == 0xFF56E0FF){
+								setPoints(-5);
+								return true;
+							}
+					}
+				//	}
+					break;
+				case 2:
+					for(int i = 0; i < Sprite.player.SIZE; i++){
+						if(screen.pixels[x+(y+i+vy)*Background.width_p] == 0xFF56E0FF){
+							setPoints(-5);
+							return true;
+						}
+					}
+					break;
+				case 3:
+					if(screen.pixels[(x-vx)+y*Background.width_p] == 0xFF56E0FF){
+						setPoints(-5);
+						return true;
+					}
+					break;		
 			}
 		}catch (Exception e){
 			return true;
@@ -66,4 +90,20 @@ public class Player extends Mob {
 	public void render(Screen screen){
 		screen.renderMob(x, y, Sprite.player, 8);
 	}
+
+	public void move(int xa, int ya, Screen screen){
+		if(xa > 0) dir = 1;
+		if(xa < 0) dir = 3;
+		if(ya > 0) dir = 2;
+		if(ya < 0) dir = 0;
+		
+		if ( dir == 0 && collisionBorde(screen, dir)) ya++;
+		if ( dir == 1 && collisionBorde(screen, dir)) xa--;
+		if( dir == 2 && collisionBorde(screen, dir)) ya--;
+		if( dir == 3 && collisionBorde(screen, dir)) xa++;
+		
+		x += xa;
+		y += ya;
+	}
+
 }
