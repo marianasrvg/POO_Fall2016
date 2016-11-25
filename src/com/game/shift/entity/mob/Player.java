@@ -83,14 +83,14 @@ public class Player extends Mob {
 					for(int j = 0; j < Sprite.player.SIZE; j++){
 						if(screen.pixels[(x+i)+(y-vy+j)*Background.width_p] == 0xFF7FFF8E || 
 								screen.pixels[(x+i)+(y-vy+j)*Background.width_p] == 0xFFFF6890){
+							if(!take && arrBonus[1]){
+								//No se modifican los puntos y eso asi que aqui no se manda a llamar la funcion
+								take = true;
+							}
 							if(!take){
 								setPoints(-1);
 								take = true;
 							}
-						}
-						if(!take && arrBonus[1]){
-							//No se modifican los puntos y eso asi que aqui no se manda a llamar la funcion
-							take = true;
 						}
 					}
 				}
