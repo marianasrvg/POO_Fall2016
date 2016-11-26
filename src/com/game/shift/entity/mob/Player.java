@@ -88,60 +88,16 @@ public class Player extends Mob {
 								take = true;
 							}
 							if(!take){
-								System.out.println("true");
+								//sdSystem.out.println("true");
 								setPoints(-1);
 								take = true;
 							}
 						}
 					}
 				}
-				//break;
-			//case 1:
-	/*			for(int i = 0; i < Sprite.player.SIZE; i++){
-					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFF7FFF8E || 
-								screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFFFF6890){
-							if(!take){
-								System.out.println("true");
-								setPoints(-1);
-								take = true;
-							}
-						}
-					}
-				}
-				//break;
-			//case 2:
-				for(int i = 0; i < Sprite.player.SIZE; i++){
-					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == 0xFF7FFF8E ||
-								screen.pixels[(x+j)+(y+i)*Background.width_p] == 0xFFFF6890){
-							if(!take){
-								System.out.println("true");
-								setPoints(-1);
-								take = true;
-							}	
-						}
-					}
-				}
-			//	break;
-			//case 3:
-				for(int i = 0; i < Sprite.player.SIZE; i++){
-					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFF7FFF8E ||
-								screen.pixels[(x+i)+(y+j)*Background.width_p] == 0xFFFF6890){
-							if(!take){
-								System.out.println("true");
-								setPoints(-1);
-								take = true;
-							}
-						}
-					}
-				}*/
-			//	break;		
-		//	}
 		}catch(Exception e){
-			
 		}
+		take = false;
 	}
 	
 	protected void setBonusActive(){

@@ -20,7 +20,7 @@ public class PlayerOne extends Player {
 		if(input.right1) xa++;	
 		
 		if(xa!= 0 || ya!= 0) move (xa, ya, screen); 
-		ActivatebonusPoints();
+	//	ActivatebonusPoints();
 	}
 		
 	private void posRandom(){
@@ -29,8 +29,8 @@ public class PlayerOne extends Player {
 	}
 
 	private void ActivatebonusPoints(){
-		if(getPoints() % 100 == 0){
-			Barra.changePosX(Barra.posX-10);
+		if(getPoints() >=  100 && getPoints() <= 110){
+			Barra.changePosX(Barra.posX+10);
 		}
 	}
 	
