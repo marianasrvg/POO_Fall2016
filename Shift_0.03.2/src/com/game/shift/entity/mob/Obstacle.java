@@ -11,8 +11,10 @@ public class Obstacle extends Mob {
 	
 	
 
-	public Obstacle(int lado){
+	public Obstacle(int lado, Sprite sprite, Background world){
 		this.lado_terreno = lado;
+		setSprite(sprite);
+		this.world = world;
 		posRandom();
 	}
 
@@ -41,7 +43,7 @@ public class Obstacle extends Mob {
 	
 	protected boolean collisionBarra(Screen screen){
 		try{
-			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id])
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id])
 				return true;
 		} catch (Exception e){
 			return true;
@@ -52,9 +54,9 @@ public class Obstacle extends Mob {
 	protected boolean collisionObstacle(Screen screen){
 		try{
 			
-			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_blue.id]) 
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[world.obstacle_l[0].sprite.id]) 
 				return true;
-			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_pink.id]) 
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[world.obstacle_r[0].sprite.id]) 
 				return true;
 		} catch (Exception e){
 			return true;
@@ -64,12 +66,12 @@ public class Obstacle extends Mob {
 
 	private void posRandom(){
 		if(lado_terreno == 1){
-			x = (int)(Math.random()*(Sprite.BORDE - (Barra.posX-Sprite.obstaculo_blue.SIZE)) + Barra.posX-Sprite.obstaculo_blue.SIZE);
+			x = (int)(Math.random()*(Sprite.BORDE - (Barra.posX-world.barra.sprite.SIZE)) + Barra.posX-Sprite.obstaculo_blue.SIZE);
 			if (x >= Background.width_p/4 && x <= (Background.width_p/4)+Sprite.obstaculo_blue.SIZE)
 				posRandom();
 		}
 		if(lado_terreno == 2)
-			x = (int)(Math.random()* ((Barra.posX+Sprite.obstaculo_pink.SIZE)-(Background.width_p-Sprite.BORDE))+ Background.width_p-Sprite.BORDE);
+			x = (int)(Math.random()* ((Barra.posX+Sprite.obstaculo_pink.SIZE+8)-(Background.width_p-Sprite.BORDE))+ Background.width_p-Sprite.BORDE);
 			if( x >= 3*Background.width_p/4 && x <= (3*Background.width_p/4)+Sprite.obstaculo_blue.SIZE)
 				posRandom();
 		y =(int)(Math.random()*((Sprite.INFO+Sprite.BORDE)-(Background.height_p-Sprite.BORDE*2))+ Background.height_p-Sprite.BORDE*2);
@@ -78,9 +80,6 @@ public class Obstacle extends Mob {
 	}
 	
 	public void render(Screen screen){
-		if(lado_terreno == 1)
-			screen.renderMob(x, y, Sprite.obstaculo_blue, 4);
-		if(lado_terreno == 2)
-			screen.renderMob(x, y, Sprite.obstaculo_pink, 4);
+			screen.renderMob(x, y, this.sprite, 4);
 	}
 }

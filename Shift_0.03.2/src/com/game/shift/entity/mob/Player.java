@@ -15,9 +15,11 @@ public class Player extends Mob {
 	protected boolean activeBonusP = false;
 	public static int mPoints = 10;
 	
-	public Player(Keyboard input){
+	public Player(Keyboard input, Background world, Sprite sprite){
 		this.input = input;
 		this.points = mPoints;
+		this.world = world;
+		this.sprite = sprite;
 	}
 	
 	public void setPoints(int x){
@@ -41,7 +43,7 @@ public class Player extends Mob {
 		try{
 			switch(dir){//////
 				case 0:
-					if(screen.pixels[x+(y-vy)*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
+					if(screen.pixels[x+(y-vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 						setPoints(-5);
 						return true;
 					}
@@ -49,7 +51,7 @@ public class Player extends Mob {
 				case 1:
 				//	for(int z = 0; z < vx; z++){ con esto podriamos checar con el cambio de velocidad
 					for(int i = 0; i < Sprite.player.SIZE; i++){
-							if(screen.pixels[(x+i+vx)+y*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
+							if(screen.pixels[(x+i+vx)+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 								setPoints(-5);
 								return true;
 							}
@@ -58,14 +60,14 @@ public class Player extends Mob {
 					break;
 				case 2:
 					for(int i = 0; i < Sprite.player.SIZE; i++){
-						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
+						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 							setPoints(-5);
 							return true;
 						}
 					}
 					break;
 				case 3:
-					if(screen.pixels[(x-vx)+y*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
+					if(screen.pixels[(x-vx)+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 						setPoints(-5);
 						return true;
 					}
@@ -83,8 +85,8 @@ public class Player extends Mob {
 			//case 0:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
 					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_blue.id] || 
-								screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_pink.id]){
+						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[world.obstacle_l[0].sprite.id] || 
+								screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[world.obstacle_r[0].sprite.id] ){
 							if(!take && arrBonus[1]){
 								//No se modifican los puntos y eso asi que aqui no se manda a llamar la funcion
 								take = true;
@@ -131,10 +133,10 @@ public class Player extends Mob {
 		
 		if(arrBonus[1]){
 			//Cambiar el render al del jugador con escutido y asi. 
-			screen.renderMob(x, y, Sprite.player, 8);
+			screen.renderMob(x, y, sprite, 8);
 		}
 		
-		screen.renderMob(x, y, Sprite.player, 8);
+		screen.renderMob(x, y, sprite, 8);
 	}
 
 	public void move(int xa, int ya, Screen screen){

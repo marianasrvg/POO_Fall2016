@@ -10,8 +10,18 @@ public class SpriteSheet {
 	public final int SIZE;
 	public int[] pixels;
 	// BACKGROUND - BARRA - ROSA - VERDE - BLANCO - PLAYER - BONUS - INFO - ARROW
-	public static final int COLORES[] = {0x00000000, 0xFF56E0FF, 0xFFFF6890, 
-			0xFF7FFF8E, 0xFFFFFFFF, 0xFFFEFFC4, 0xFF7F16, 0x00404040, 0x00FF265C};
+	public static final int COLORES[] = 
+			{0x00000000, //background
+			0xFF56E0FF, //barra
+			0xFFFF6890,  //rosa
+			0xFF7FFF8E,  //verde
+			0xFFFFFFFF,  //blanco
+			0xFFFEFFC4,  //amarillo
+			0x00FF7F16, 	//bonus
+			0x00404040,  //info
+			0x00FF265C,	//arrow
+			0xFFFFE438, //rosa-amarillo
+			}; 
 	
 	public static SpriteSheet tiles = new SpriteSheet("/textures/spritesheet.png", 256);
 	public static SpriteSheet bolitas = new SpriteSheet("/textures/obstaclesheet.png", 256);
