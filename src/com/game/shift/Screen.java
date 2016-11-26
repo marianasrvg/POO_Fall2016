@@ -1,5 +1,6 @@
 package com.game.shift;
 import com.game.shift.graficos.Sprite;
+import com.game.shift.graficos.SpriteSheet;
 
 public class Screen {
 	public int width, height;
@@ -65,7 +66,7 @@ public class Screen {
 				if(xa <-px || xa >= width || ya < 0 || ya>= height) break;
 				if(xa < 0) xa = 0;
 				int col = sprite.pixels[x+y*px];
-				if (col != 0xffffffff) pixels[xa+ya*width] = col;
+				if (col != SpriteSheet.COLORES[3]) pixels[xa+ya*width] = col;
 			}
 		}
 	}

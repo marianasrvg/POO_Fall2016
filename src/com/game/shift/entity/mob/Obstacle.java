@@ -3,6 +3,7 @@ package com.game.shift.entity.mob;
 import com.game.shift.Screen;
 import com.game.shift.graficos.Background;
 import com.game.shift.graficos.Sprite;
+import com.game.shift.graficos.SpriteSheet;
 
 public class Obstacle extends Mob {
 
@@ -51,9 +52,9 @@ public class Obstacle extends Mob {
 	protected boolean collisionObstacle(Screen screen){
 		try{
 			
-			if(screen.pixels[x+y*Background.width_p] == 0xFF7FFF8E) 
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[1]) 
 				return true;
-			if(screen.pixels[x+y*Background.width_p] == 0xFFFF6890) 
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[2]) 
 				return true;
 		} catch (Exception e){
 			return true;

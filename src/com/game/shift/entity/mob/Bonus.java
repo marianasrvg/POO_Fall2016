@@ -4,6 +4,7 @@ import com.game.shift.Screen;
 import com.game.shift.Timing;
 import com.game.shift.graficos.Background;
 import com.game.shift.graficos.Sprite;
+import com.game.shift.graficos.SpriteSheet;
 
 public class Bonus extends Mob {
 
@@ -61,8 +62,8 @@ public class Bonus extends Mob {
 		try {
 			for (int i = 0; i < 6; i++) {
 				for (int j = 0; j < 6; j++) {
-					if (screen.pixels[(x + j) + ((y + i) * Background.width_p)] == 0xFFFEFFC4
-							|| screen.pixels[(x + j) + ((y + i) * Background.width_p)] == 0xFFFEFFC4) {
+					if (screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[4]
+							|| screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[4]) {
 						taken = true;
 					}
 				}
