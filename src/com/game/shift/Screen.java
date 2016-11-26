@@ -1,4 +1,5 @@
 package com.game.shift;
+import com.game.shift.graficos.Background;
 import com.game.shift.graficos.Sprite;
 import com.game.shift.graficos.SpriteSheet;
 
@@ -31,6 +32,7 @@ public class Screen {
 			}
 		}
 		paintMarco();
+		renderMob(Background.width_p/2 - 3, 3, Sprite.arrow ,16);
 	}
 	
 	private void paintMarco(){

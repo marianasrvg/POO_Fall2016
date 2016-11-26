@@ -165,7 +165,7 @@ public class Background extends Canvas implements Runnable{
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(new Color(0xF2F6FF));
 		g.setFont(new Font("Hyperspace", 0, 16));
-		g.drawString(timer.timerString(), (width_p/2)*scale-30, 20);
+		g.drawString(timer.timerString(), (width_p/2-10)*scale-30, 20);
 		g.drawString(playerone.toString(), 10, 20);
 		g.drawString(playertwo.toString(), 280*scale, 20);
 		
@@ -174,6 +174,5 @@ public class Background extends Canvas implements Runnable{
 		if(playerone.getPoints() < 0 || playertwo.getPoints() < 0){
 			stop();
 		}
-		
 	}	 
 }
