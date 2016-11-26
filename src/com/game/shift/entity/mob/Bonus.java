@@ -12,7 +12,8 @@ public class Bonus extends Mob {
 	public boolean active = false;
 	
 
-	public Bonus(Timing t) {
+	public Bonus(Timing t, Background world) {
+		this.world = world;
 		spawnRand();
 		activate(t);
 	}
@@ -62,8 +63,8 @@ public class Bonus extends Mob {
 		try {
 			for (int i = 0; i < 6; i++) {
 				for (int j = 0; j < 6; j++) {
-					if (screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[Sprite.player.id]
-							|| screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[Sprite.player.id]) {
+					if (screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[world.playerone.sprite.id]
+							|| screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[world.playertwo.sprite.id]) {
 						taken = true;
 					}
 				}

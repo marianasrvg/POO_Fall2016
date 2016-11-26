@@ -12,7 +12,6 @@ import com.game.shift.Timing;
 import com.game.shift.entity.mob.Barra;
 import com.game.shift.entity.mob.Bonus;
 import com.game.shift.entity.mob.Obstacle;
-import com.game.shift.entity.mob.Player;
 import com.game.shift.entity.mob.PlayerOne;
 import com.game.shift.entity.mob.PlayerTwo;
 import com.game.shift.input.Keyboard;
@@ -24,19 +23,20 @@ public class Background extends Canvas implements Runnable{
 	public static int height_p = width_p / 16 * 9;
 	public static int scale = 3;
 	public static String title = "Shift";
-	public static final int N_OBS = 20;
+	public static final int N_OBS = 10;
 	
 
 	private Thread thread;
 	private boolean running = false;
-	private Keyboard key;
-	private JFrame frame;
-	private PlayerOne playerone;
-	private PlayerTwo playertwo;
-	private Obstacle obstaculo[] = new Obstacle[N_OBS];
-	private Barra barra;
-	private Timing timer = new Timing();
-	private Bonus tbonus;
+	public Keyboard key;
+	public JFrame frame;
+	public PlayerOne playerone;
+	public PlayerTwo playertwo;
+	public Obstacle obstacle_l[] = new Obstacle[N_OBS];
+	public Obstacle obstacle_r[] = new Obstacle[N_OBS];
+	public Barra barra;
+	public Timing timer = new Timing();
+	public Bonus tbonus;
 	
 	private BufferedImage image = new BufferedImage(width_p, height_p, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
@@ -50,14 +50,15 @@ public class Background extends Canvas implements Runnable{
 		screen = new Screen(width_p,height_p);
 		frame = new JFrame();
 		key = new Keyboard();
-		playerone = new PlayerOne(key);
-		playertwo = new PlayerTwo(key);
-		for(int i = 0; i < N_OBS/2; i++){
-			obstaculo[i] = new Obstacle(1);
-			obstaculo[i+(N_OBS/2)] = new Obstacle(2);
+		playerone = new PlayerOne(key, this, Sprite.player);
+		playertwo = new PlayerTwo(key, this, Sprite.player);
+		barra = new Barra(Sprite.barra);
+		for(int i = 0; i < N_OBS; i++){
+			obstacle_l[i] = new Obstacle(1, Sprite.obstaculo_blue, this);
+			obstacle_r[i] = new Obstacle(2, Sprite.obstaculo_pink, this);
 		}
-		barra = new Barra();
-		tbonus = new Bonus(timer);
+		
+		tbonus = new Bonus(timer, this);
 		frameCaracteristicas();
 				
 	}
@@ -124,8 +125,9 @@ public class Background extends Canvas implements Runnable{
 		key.update();
 		playerone.update(screen);
 		playertwo.update(screen);
-		for(int i = 0; i < obstaculo.length; i++){
-			obstaculo[i].update(screen);
+		for(int i = 0; i < N_OBS; i++){
+			obstacle_l[i].update(screen);
+			obstacle_r[i].update(screen);
 		}
 		//tbonus.update(screen, timer);
 		if(tbonus.active){
@@ -144,8 +146,9 @@ public class Background extends Canvas implements Runnable{
 		screen.setOffset(0, 0);
 		playerone.render(screen);
 		playertwo.render(screen);
-		for(int i = 0; i < obstaculo.length; i++){
-			obstaculo[i].render(screen);
+		for(int i = 0; i < N_OBS; i++){
+			obstacle_l[i].render(screen);
+			obstacle_r[i].render(screen);
 		}
 		if(tbonus.active){
 			tbonus.render(screen);
@@ -154,10 +157,10 @@ public class Background extends Canvas implements Runnable{
 		
 		barra.render(screen);
 		timer.render();
-		if(timer.itsTime()){
+		/*if(timer.itsTime()){
 			playerone.setPoints(Player.mPoints);
 			playertwo.setPoints(Player.mPoints);
-		}
+		}*/
 		for(int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];
 		}
@@ -165,13 +168,13 @@ public class Background extends Canvas implements Runnable{
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(new Color(0xF2F6FF));
 		g.setFont(new Font("Hyperspace", 0, 16));
-		g.drawString(timer.timerString(), (width_p/2-10)*scale-30, 20);
+		g.drawString(timer.timerString(), (width_p/2-12)*scale-30, 20);
 		g.drawString(playerone.toString(), 10, 20);
 		g.drawString(playertwo.toString(), 280*scale, 20);
 		
 		g.dispose();
 		bs.show();
-		if(playerone.getPoints() < 0 || playertwo.getPoints() < 0){
+		if(playerone.getPoints() < 0 || playertwo.getPoints() < 0 || timer.getTime() == 0){
 			stop();
 		}
 	}	 

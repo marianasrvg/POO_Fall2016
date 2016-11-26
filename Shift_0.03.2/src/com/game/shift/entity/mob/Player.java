@@ -12,6 +12,7 @@ public class Player extends Mob {
 	protected boolean take = false;
 	protected boolean arrBonus[] = {false, false, false};
 	protected boolean activBonus = false;
+	protected boolean activeBonusP = false;
 	public static int mPoints = 100;
 	
 	public Player(Keyboard input, Background world, Sprite sprite){
