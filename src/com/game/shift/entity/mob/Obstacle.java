@@ -41,7 +41,7 @@ public class Obstacle extends Mob {
 	
 	protected boolean collisionBarra(Screen screen){
 		try{
-			if(screen.pixels[x+y*Background.width_p] == 0xFF56E0FF)
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id])
 				return true;
 		} catch (Exception e){
 			return true;
@@ -52,9 +52,9 @@ public class Obstacle extends Mob {
 	protected boolean collisionObstacle(Screen screen){
 		try{
 			
-			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[1]) 
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_blue.id]) 
 				return true;
-			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[2]) 
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_pink.id]) 
 				return true;
 		} catch (Exception e){
 			return true;

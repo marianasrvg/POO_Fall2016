@@ -41,7 +41,7 @@ public class Player extends Mob {
 		try{
 			switch(dir){//////
 				case 0:
-					if(screen.pixels[x+(y-vy)*Background.width_p] == 0xFF56E0FF){
+					if(screen.pixels[x+(y-vy)*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
 						setPoints(-5);
 						return true;
 					}
@@ -49,7 +49,7 @@ public class Player extends Mob {
 				case 1:
 				//	for(int z = 0; z < vx; z++){ con esto podriamos checar con el cambio de velocidad
 					for(int i = 0; i < Sprite.player.SIZE; i++){
-							if(screen.pixels[(x+i+vx)+y*Background.width_p] == SpriteSheet.COLORES[0]){
+							if(screen.pixels[(x+i+vx)+y*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
 								setPoints(-5);
 								return true;
 							}
@@ -58,14 +58,14 @@ public class Player extends Mob {
 					break;
 				case 2:
 					for(int i = 0; i < Sprite.player.SIZE; i++){
-						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[0]){
+						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
 							setPoints(-5);
 							return true;
 						}
 					}
 					break;
 				case 3:
-					if(screen.pixels[(x-vx)+y*Background.width_p] == SpriteSheet.COLORES[0]){
+					if(screen.pixels[(x-vx)+y*Background.width_p] == SpriteSheet.COLORES[Sprite.barra1.id]){
 						setPoints(-5);
 						return true;
 					}
@@ -83,8 +83,8 @@ public class Player extends Mob {
 			//case 0:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
 					for(int j = 0; j < Sprite.player.SIZE; j++){
-						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[1] || 
-								screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[2]){
+						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_blue.id] || 
+								screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[Sprite.obstaculo_pink.id]){
 							if(!take && arrBonus[1]){
 								//No se modifican los puntos y eso asi que aqui no se manda a llamar la funcion
 								take = true;
