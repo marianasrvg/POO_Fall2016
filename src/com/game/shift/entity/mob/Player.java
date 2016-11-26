@@ -6,7 +6,7 @@ import com.game.shift.graficos.Sprite;
 import com.game.shift.graficos.SpriteSheet;
 import com.game.shift.input.Keyboard;
 
-public class Player extends Mob {
+public class Player extends Bonus {
 	protected Keyboard input;
 	protected int points;
 	protected boolean take = false;
@@ -41,7 +41,7 @@ public class Player extends Mob {
 	
 	protected boolean collisionBorder(Screen screen, int dir){
 		try{
-			switch(dir){//////
+			switch(dir){
 				case 0:
 					if(screen.pixels[x+(y-vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 						setPoints(-10);
@@ -93,7 +93,7 @@ public class Player extends Mob {
 							}
 							if(!take){
 								//sdSystem.out.println("true");
-								setPoints(-2);
+								setPoints(-1);
 								take = true;
 							}
 						}

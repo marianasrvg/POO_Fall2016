@@ -21,37 +21,46 @@ public class PlayerOne extends Player {
 		if(input.right1) xa++;	
 		
 		if(xa!= 0 || ya!= 0) move (xa, ya, screen); 
-		ActivatebonusPoints();
+		WarningBonus();
 	}
 		
 	private void posRandom(){
 		x = Background.width_p/4;
 		y = Background.height_p/2;
 	}
+	
+	private void bonusBarra(){
+		for ( int j = 1; j <= 20; j++){
+			world.barra.setXY(world.barra.x+1, world.barra.y);
+		}
+		arrBonus[2] = false;
+	}
 
-	private void ActivatebonusPoints(){
-		for(int i = 1; i <= 10; i++){
-			if(getPoints() >=  ((i*100)+100) && getPoints() <= ((i*100)+110) && !activeBonusP && !world.playertwo.activeBonusP){
-				for ( int j = 1; j <= 10; j++){
-					world.barra.setXY(world.barra.x+1, world.barra.y);
-				}
-				activeBonusP = true;
-				break;
-			}
-			if(getPoints() >= (i*100)+150 && getPoints() <= (i*100)+190 ){
-				activeBonusP = false;
-			}
-		}
-		if(getPoints() >= 50 && getPoints()<=60){
-			for(int i = 0; i < Background.N_OBS; i++){
-				world.obstacle_l[i].setSprite(Sprite.obstaculo_pink);
-				world.obstacle_r[i].setSprite(Sprite.obstaculo_blue);
-			}
-		}
-		if(getPoints() >= 80 && getPoints()<=90){
+	private void WarningBonus(){
+		if(getPoints() < 100 && getPoints() > 80){
 			for(int i = 0; i < Background.N_OBS; i++){
 				world.obstacle_l[i].setSprite(Sprite.obstaculo_blue);
-				world.obstacle_r[i].setSprite(Sprite.obstaculo_pink);
+				return;
+			}
+		}
+		if(getPoints() < 80 && getPoints() > 60){
+			for(int i = 0; i < Background.N_OBS; i++){
+				world.obstacle_l[i].setSprite(Sprite.obstaculo_pink);
+			}
+		}
+		if(getPoints() < 60 && getPoints() > 40){
+			for(int i = 0; i < Background.N_OBS; i++){
+				world.obstacle_l[i].setSprite(Sprite.obstaculo_yellow);
+			}
+		}
+		if(getPoints() < 40 && getPoints() > 20){
+			for(int i = 0; i < Background.N_OBS; i++){
+				world.obstacle_l[i].setSprite(Sprite.obstaculo_blue);
+			}
+		}
+		if(getPoints() < 20 && getPoints() > 0){
+			for(int i = 0; i < Background.N_OBS; i++){
+				world.obstacle_l[i].setSprite(Sprite.obstaculo_pink);
 			}
 		}
 	}

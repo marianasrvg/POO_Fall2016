@@ -11,16 +11,18 @@ public class Bonus extends Mob {
 	public boolean taken = false;
 	public boolean active = false;
 	
+	public Bonus(){}
+	
 
-	public Bonus(Timing t, Background world) {
+	public Bonus(Background world) {
 		this.world = world;
 		spawnRand();
-		activate(t);
+		activate();
 	}
 
-	public void update(Screen screen, Timing t) {
+	public void update(Screen screen) {
 		move(screen);
-		activate(t);
+		activate();
 		collisionPlayer(screen);
 	}
 
@@ -47,16 +49,10 @@ public class Bonus extends Mob {
 		screen.renderMob(x, y, Sprite.bonus_t, 6);
 	}
 
-	public void activate(Timing t) {
-		int mult = 1000;
-		if (t.getTime() % mult == 0 && this.taken == false) {
-			this.active = true;
-			mult *= 10;
-		} else if (this.taken == true) {
-			this.active = false;
-			this.taken = false;
-		}		
-		mult *= 1;
+	public void activate() {
+		if(world.timer.getTime() % 12 == 0){
+			active = true;
+		}
 	}
 
 	public void collisionPlayer(Screen screen) {

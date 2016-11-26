@@ -58,7 +58,7 @@ public class Background extends Canvas implements Runnable{
 			obstacle_r[i] = new Obstacle(2, Sprite.obstaculo_pink, this);
 		}
 		
-		tbonus = new Bonus(timer, this);
+		tbonus = new Bonus(this);
 		frameCaracteristicas();
 				
 	}
@@ -129,9 +129,8 @@ public class Background extends Canvas implements Runnable{
 			obstacle_l[i].update(screen);
 			obstacle_r[i].update(screen);
 		}
-		//tbonus.update(screen, timer);
 		if(tbonus.active){
-			tbonus.update(screen, timer);
+			tbonus.update(screen);
 		}
 	}
 	
@@ -154,13 +153,8 @@ public class Background extends Canvas implements Runnable{
 			tbonus.render(screen);
 		}
 		
-		
 		barra.render(screen);
 		timer.render();
-		/*if(timer.itsTime()){
-			playerone.setPoints(Player.mPoints);
-			playertwo.setPoints(Player.mPoints);
-		}*/
 		for(int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];
 		}
@@ -171,11 +165,10 @@ public class Background extends Canvas implements Runnable{
 		g.drawString(timer.timerString(), (width_p/2-12)*scale-30, 20);
 		g.drawString(playerone.toString(), 10, 20);
 		g.drawString(playertwo.toString(), 280*scale, 20);
-		
 		g.dispose();
 		bs.show();
 		if(playerone.getPoints() < 0 || playertwo.getPoints() < 0 || timer.getTime() == 0){
-			stop();
+			running = false;
 		}
 	}	 
 }
