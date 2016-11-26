@@ -12,8 +12,7 @@ public class Player extends Mob {
 	protected boolean take = false;
 	protected boolean arrBonus[] = {false, false, false};
 	protected boolean activBonus = false;
-	protected boolean activeBonusP = false;
-	public static int mPoints = 10;
+	public static int mPoints = 100;
 	
 	public Player(Keyboard input, Background world, Sprite sprite){
 		this.input = input;
@@ -44,7 +43,7 @@ public class Player extends Mob {
 			switch(dir){//////
 				case 0:
 					if(screen.pixels[x+(y-vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-						setPoints(-5);
+						setPoints(-10);
 						return true;
 					}
 					break;
@@ -52,7 +51,7 @@ public class Player extends Mob {
 				//	for(int z = 0; z < vx; z++){ con esto podriamos checar con el cambio de velocidad
 					for(int i = 0; i < Sprite.player.SIZE; i++){
 							if(screen.pixels[(x+i+vx)+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-								setPoints(-5);
+								setPoints(-10);
 								return true;
 							}
 					}
@@ -61,14 +60,14 @@ public class Player extends Mob {
 				case 2:
 					for(int i = 0; i < Sprite.player.SIZE; i++){
 						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-							setPoints(-5);
+							setPoints(-10);
 							return true;
 						}
 					}
 					break;
 				case 3:
 					if(screen.pixels[(x-vx)+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-						setPoints(-5);
+						setPoints(-10);
 						return true;
 					}
 					break;		
@@ -93,7 +92,7 @@ public class Player extends Mob {
 							}
 							if(!take){
 								//sdSystem.out.println("true");
-								setPoints(-1);
+								setPoints(-2);
 								take = true;
 							}
 						}

@@ -30,7 +30,7 @@ public class PlayerOne extends Player {
 	}
 
 	private void ActivatebonusPoints(){
-		for(int i = 0; i <= 10; i++){
+		for(int i = 1; i <= 10; i++){
 			if(getPoints() >=  ((i*100)+100) && getPoints() <= ((i*100)+110) && !activeBonusP && !world.playertwo.activeBonusP){
 				for ( int j = 1; j <= 10; j++){
 					world.barra.setXY(world.barra.x+1, world.barra.y);

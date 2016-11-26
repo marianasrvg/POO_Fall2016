@@ -12,7 +12,6 @@ import com.game.shift.Timing;
 import com.game.shift.entity.mob.Barra;
 import com.game.shift.entity.mob.Bonus;
 import com.game.shift.entity.mob.Obstacle;
-import com.game.shift.entity.mob.Player;
 import com.game.shift.entity.mob.PlayerOne;
 import com.game.shift.entity.mob.PlayerTwo;
 import com.game.shift.input.Keyboard;
@@ -158,10 +157,10 @@ public class Background extends Canvas implements Runnable{
 		
 		barra.render(screen);
 		timer.render();
-		if(timer.itsTime()){
+		/*if(timer.itsTime()){
 			playerone.setPoints(Player.mPoints);
 			playertwo.setPoints(Player.mPoints);
-		}
+		}*/
 		for(int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];
 		}
@@ -169,13 +168,13 @@ public class Background extends Canvas implements Runnable{
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(new Color(0xF2F6FF));
 		g.setFont(new Font("Hyperspace", 0, 16));
-		g.drawString(timer.timerString(), (width_p/2-10)*scale-30, 20);
+		g.drawString(timer.timerString(), (width_p/2-12)*scale-30, 20);
 		g.drawString(playerone.toString(), 10, 20);
 		g.drawString(playertwo.toString(), 280*scale, 20);
 		
 		g.dispose();
 		bs.show();
-		if(playerone.getPoints() < 0 || playertwo.getPoints() < 0){
+		if(playerone.getPoints() < 0 || playertwo.getPoints() < 0 || timer.getTime() == 0){
 			stop();
 		}
 	}	 

@@ -2,6 +2,9 @@ Barra- 56E0FF
 Obstaculos - 
 azul 268AEF 
 rosa FF6890 
+rosa pastel FFB3A5
+amarillo - FFE438
+verde pastel a5ffb3
 verde obstaculo - 7FFF8E
 Fondo-000000
 Player-
@@ -14,3 +17,4 @@ blanco- no blanco F2F6FF
 BONUS
 naranja- FF7F16
 Contorno - 51C4FF
+Arrow FF265C
