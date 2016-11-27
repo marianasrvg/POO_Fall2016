@@ -23,6 +23,12 @@ public class Obstacle extends Mob {
 	}
 	
 	public void move(Screen screen){
+		if(vx > 0 && vy < 0) dir = 1;
+		if(vx < 0 && vy < 0) dir = 2;
+		if(vx < 0 && vy > 0) dir = 3;
+		if(vx > 0 && vy > 0) dir = 4;
+		
+		
 		if(collisionObstacle(screen)) {
 			vx*= -1;
 			vy *= -1;
@@ -34,6 +40,7 @@ public class Obstacle extends Mob {
 		if( x + vx <= 0)  vx *= -1;
 		if( y + vy >= Background.height_p - (Sprite.BORDE+2))  vy *= -1;
 		if( y + vy <= Sprite.INFO)  vy *= -1;
+		
 		
 		x += vx;
 		y += vy;

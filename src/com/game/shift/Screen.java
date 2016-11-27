@@ -1,7 +1,5 @@
 package com.game.shift;
-import java.awt.Color;
 
-import com.game.shift.graficos.Background;
 import com.game.shift.graficos.Sprite;
 import com.game.shift.graficos.SpriteSheet;
 

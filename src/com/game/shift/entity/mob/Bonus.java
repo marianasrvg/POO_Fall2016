@@ -1,10 +1,8 @@
 package com.game.shift.entity.mob;
 
 import com.game.shift.Screen;
-import com.game.shift.Timing;
 import com.game.shift.graficos.Background;
 import com.game.shift.graficos.Sprite;
-import com.game.shift.graficos.SpriteSheet;
 
 public class Bonus extends Mob {
 
