@@ -58,6 +58,8 @@ public class Obstacle extends Mob {
 				return true;
 			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[world.obstacle_r[0].sprite.id]) 
 				return true;
+			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]) 
+				return true;
 		} catch (Exception e){
 			return true;
 		}
