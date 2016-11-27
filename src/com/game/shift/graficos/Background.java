@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 import javax.swing.*;
 
@@ -24,6 +26,8 @@ public class Background extends Canvas implements Runnable{
 	public static int scale = 3;
 	public static String title = "Shift";
 	public static final int N_OBS = 10;
+	private static final String loc1 = "res/files/score_p1.txt";
+	private static final String loc2 = "res/files/socre_p2.txt";
 	
 
 	private Thread thread;
@@ -172,6 +176,30 @@ public class Background extends Canvas implements Runnable{
 		bs.show();
 		if(playerone.getPoints() < 0 || playertwo.getPoints() < 0 || timer.getTime() == 0){
 			running = false;
+			this.writeScores();
 		}
-	}	 
+	}
+	
+	public void writeScores(){
+		if(running == false){
+			try{
+				FileWriter fw1 = new FileWriter(loc1, true);
+				FileWriter fw2 = new FileWriter(loc2, true);
+				BufferedWriter bf1 = new BufferedWriter(fw1);
+				BufferedWriter bf2 = new BufferedWriter(fw2);
+				
+				bf1.write(""+playerone.getPoints());
+				bf1.newLine();
+				bf2.write(""+playertwo.getPoints());
+				bf2.newLine();
+				bf1.close();
+				bf2.close();
+				fw1.close();
+				fw2.close();
+				
+			}catch(Exception e){
+				System.out.println(e.getStackTrace());
+			}
+		}
+	}
 }
