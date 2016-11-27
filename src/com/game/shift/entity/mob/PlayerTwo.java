@@ -13,6 +13,7 @@ public class PlayerTwo extends Player {
 	}
 	
 	public void update(Screen screen){
+		timeClear();
 		collisionObstacle(screen, dir);
 		int xa = 0, ya = 0;
 		if(input.up2) ya--;
@@ -66,6 +67,7 @@ public class PlayerTwo extends Player {
 		if(getPoints() < 20 && getPoints() > 0){
 			for(int i = 0; i < Background.N_OBS; i++){
 				world.obstacle_r[i].setSprite(Sprite.obstaculo_yellow);
+				setsms("20 points left");
 			}
 			return;
 		}

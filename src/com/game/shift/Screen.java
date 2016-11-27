@@ -34,7 +34,7 @@ public class Screen {
 			}
 		}
 		paintMarco();
-		renderMob(Background.width_p/2 - 3, 3, Sprite.arrow ,16);
+		//renderMob(Background.width_p/2 - 3, 3, Sprite.arrow ,16);
 	}
 	
 	private void paintMarco(){

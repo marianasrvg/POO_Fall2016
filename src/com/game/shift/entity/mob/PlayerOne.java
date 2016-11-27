@@ -13,6 +13,7 @@ public class PlayerOne extends Player {
 	}
 	
 	public void update(Screen screen){
+		timeClear();
 		collisionObstacle(screen, dir);
 		int xa = 0, ya = 0;
 		if(input.up1) ya--;
@@ -24,6 +25,7 @@ public class PlayerOne extends Player {
 		WarningBonus();
 		setBonusActive();
 		checkBonus();
+		
 	}
 		
 	private void posRandom(){
@@ -68,6 +70,7 @@ public class PlayerOne extends Player {
 		if(getPoints() < 20 && getPoints() > 0){
 			for(int i = 0; i < Background.N_OBS; i++){
 				world.obstacle_l[i].setSprite(Sprite.obstaculo_pink);
+				setsms("20 points left");
 			}
 			return;
 		}

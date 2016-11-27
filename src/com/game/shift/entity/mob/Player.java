@@ -13,6 +13,8 @@ public class Player extends Bonus {
 	protected boolean arrBonus[] = {false, false, false};
 	public static int mPoints = 100;
 	private int lessP = -10;
+	private String sms = "";
+	protected long bonus_Time = 0;
 	
 	
 	public Player(Keyboard input, Background world, Sprite sprite){
@@ -35,6 +37,16 @@ public class Player extends Bonus {
 		return String.valueOf(getPoints());
 	}
 	
+	public String getsms(){
+		return sms;
+	}
+	
+	protected void setsms(String s){
+		sms = s;
+		return;
+	}
+	
+	
 	protected boolean collisionBorder(Screen screen, int dir){
 		try{
 			switch(dir){
@@ -46,7 +58,7 @@ public class Player extends Bonus {
 					break;
 				case 1:
 				//	for(int z = 0; z < vx; z++){ con esto podriamos checar con el cambio de velocidad
-					for(int i = 0; i < Sprite.player.SIZE; i++){
+					for(int i = 0; i < this.sprite.SIZE; i++){
 							if(screen.pixels[(x+i+vx)+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 								lessPoint();
 								return true;
@@ -55,7 +67,7 @@ public class Player extends Bonus {
 				//	}
 					break;
 				case 2:
-					for(int i = 0; i < Sprite.player.SIZE-1; i++){
+					for(int i = 0; i < this.sprite.SIZE; i++){
 						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 							lessPoint();
 							return true;
@@ -102,8 +114,6 @@ public class Player extends Bonus {
 		if(taken){
 			int rand = (int)(Math.random() * (3));
 			arrBonus[rand] = true;
-			this.setSprite(Sprite.player);
-			setlessP(-10);
 		}
 	}
 
@@ -135,27 +145,41 @@ public class Player extends Bonus {
 			setlessP(0);
 			world.tbonus.taken = false;
 			taken = false;
+			setsms("Protection MODE ON!");
+			bonus_Time = world.timer.getTime();
 		}
 		if(arrBonus[1]){
 			this.setPoints(10);
 			arrBonus[1] = false;
 			world.tbonus.taken = false;
 			taken = false;
+			setsms("+10 POINTS");
+			bonus_Time = world.timer.getTime();
 		}
 		if(arrBonus[2]){
 			bonusBarra();
 			arrBonus[2] = false;
 			world.tbonus.taken = false;
 			taken = false;
+			setsms("Size does matter");
+			bonus_Time = world.timer.getTime();
 		}		
 	}
 
-	private void WarningBonus(){}
 	private void lessPoint(){
 		setPoints(lessP);
 	}
 	
 	private void setlessP( int l){
 		lessP = l;
+	}
+
+	protected void timeClear(){
+		if((bonus_Time - world.timer.getTime()) % 1000 == 0){
+			setsms("");
+			this.setSprite(Sprite.player);
+			setlessP(-10);
+			bonus_Time = 0;
+		}
 	}
 }
