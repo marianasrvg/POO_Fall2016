@@ -60,17 +60,21 @@ public class Bonus extends Mob {
 		try {
 			for (int i = 0; i < 6; i++) {
 				for (int j = 0; j < 6; j++) {
-					if (this.x == world.playerone.x){	
+					if (this.x == world.playerone.x ){
+						if(!taken){
 						world.playerone.taken = true;
 						world.playerone.active = false;
 						taken = true;
 						active = false;
+						}
 					}
-					if (this.x == world.playertwo.x) {
+					if (this.x == world.playertwo.x ) {
+						if(!taken){
 						world.playertwo.taken = true;
 						world.playertwo.active = false;
 						taken = true;
 						active = false;
+						}
 					}
 				}
 			}

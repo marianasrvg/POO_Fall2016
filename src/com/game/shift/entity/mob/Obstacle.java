@@ -33,6 +33,8 @@ public class Obstacle extends Mob {
 			vx*= -1;
 			vy *= -1;
 		}
+		//collision2(screen);
+		
 		if(collisionBarra(screen)) {
 			vx*= -1;
 		}
@@ -71,6 +73,134 @@ public class Obstacle extends Mob {
 			return true;
 		}
 		return false;
+	}
+	
+	protected void collision2(Screen screen){
+		try{
+			switch(dir){
+			case 1:
+				for(int i = 0; i < 2; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				for(int i = 0; i < 2; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				break;
+			case 2:
+				for(int i = 0; i < 2; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				for(int i = 0; i < 2; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				break;
+			case 3:
+				for(int i = 0; i < 2; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				for(int i = 0; i < 2; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				break;
+			case 4:
+				for(int i = 0; i < 2; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 0; j < 2; j++){
+						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vy *= -1;
+					}
+				}
+				for(int i = 0; i < 2; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				for(int i = 2; i < 4; i++){
+					for(int j = 2; j < 4; j++){
+						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
+								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
+							vx *= -1;
+					}
+				}
+				break;
+			}
+		}catch (Exception e){
+		}
 	}
 
 	private void posRandom(){
