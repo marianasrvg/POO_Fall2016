@@ -11,9 +11,8 @@ public class Player extends Bonus {
 	protected int points;
 	protected boolean take = false;
 	protected boolean arrBonus[] = {false, false, false};
-	protected boolean activBonus = false;
-	protected boolean activeBonusP = false;
 	public static int mPoints = 100;
+	public static Sprite player_b = new Sprite(8, 0, 1, SpriteSheet.player, 5);
 	
 	public Player(Keyboard input, Background world, Sprite sprite){
 		this.input = input;
@@ -23,11 +22,7 @@ public class Player extends Bonus {
 	}
 	
 	public void setPoints(int x){
-		if(arrBonus[0]){
-			points += (2*x);
-		}else{
 			points += x;
-		}
 	}
 	
 	public int getPoints(){
@@ -81,8 +76,6 @@ public class Player extends Bonus {
 	
 	protected void collisionObstacle(Screen screen, int dir){
 		try{
-			//switch(dir){
-			//case 0:
 				for(int i = 0; i < Sprite.player.SIZE; i++){
 					for(int j = 0; j < Sprite.player.SIZE; j++){
 						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[world.obstacle_l[0].sprite.id] || 
@@ -105,19 +98,13 @@ public class Player extends Bonus {
 	}
 	
 	protected void setBonusActive(){
-		if(this.activBonus){
+		if(taken){
 			int rand = (int)(Math.random() * (3));
 			arrBonus[rand] = true;
 		}
 	}
 
 	public void render(Screen screen){
-		
-		if(arrBonus[1]){
-			//Cambiar el render al del jugador con escutido y asi. 
-			screen.renderMob(x, y, sprite, 8);
-		}
-		
 		screen.renderMob(x, y, sprite, 8);
 	}
 
@@ -135,5 +122,9 @@ public class Player extends Bonus {
 		x += xa;
 		y += ya;
 	}
+	
+	protected void bonusBarra(){}
+	
+	
 
 }

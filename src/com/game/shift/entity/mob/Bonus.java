@@ -21,8 +21,8 @@ public class Bonus extends Mob {
 	}
 
 	public void update(Screen screen) {
+		
 		move(screen);
-		activate();
 		collisionPlayer(screen);
 	}
 
@@ -50,8 +50,11 @@ public class Bonus extends Mob {
 	}
 
 	public void activate() {
-		if(world.timer.getTime() % 12 == 0){
+		if(world.timer.getTime() % 1200 == 0){
 			active = true;
+			if(taken)
+				spawnRand();
+				taken = false;
 		}
 	}
 
@@ -59,9 +62,17 @@ public class Bonus extends Mob {
 		try {
 			for (int i = 0; i < 6; i++) {
 				for (int j = 0; j < 6; j++) {
-					if (screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[world.playerone.sprite.id]
-							|| screen.pixels[(x + j) + ((y + i) * Background.width_p)] == SpriteSheet.COLORES[world.playertwo.sprite.id]) {
+					if (this.x == world.playerone.x){	
+						world.playerone.taken = true;
+						world.playerone.active = false;
 						taken = true;
+						active = false;
+					}
+					if (this.x == world.playertwo.x) {
+						world.playertwo.taken = true;
+						world.playertwo.active = false;
+						taken = true;
+						active = false;
 					}
 				}
 			}

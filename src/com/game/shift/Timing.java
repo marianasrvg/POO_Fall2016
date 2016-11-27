@@ -15,12 +15,16 @@ public class Timing {
 	
 	public void render(){
 		if(System.currentTimeMillis() - now > 1000){
-			time = ((time-1)<0)?0: time - 1;
+			time = ((time-1)<=0)?0: time - 1;
 		}
 		
 	}
 	
 	public String timerString(){
-		return String.valueOf(time).substring(0, 3);
-	}
+		try{
+			return String.valueOf(time).substring(0, 3);
+		} catch (Exception e){
+			return "000";
+		}
+		}
 }

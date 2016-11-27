@@ -129,6 +129,7 @@ public class Background extends Canvas implements Runnable{
 			obstacle_l[i].update(screen);
 			obstacle_r[i].update(screen);
 		}
+		tbonus.activate();
 		if(tbonus.active){
 			tbonus.update(screen);
 		}
