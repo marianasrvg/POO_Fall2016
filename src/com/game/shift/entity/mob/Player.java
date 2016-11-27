@@ -55,7 +55,7 @@ public class Player extends Bonus {
 				//	}
 					break;
 				case 2:
-					for(int i = 0; i < Sprite.player.SIZE; i++){
+					for(int i = 0; i < Sprite.player.SIZE-1; i++){
 						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
 							lessPoint();
 							return true;
