@@ -27,7 +27,7 @@ public class Background extends Canvas implements Runnable{
 	public static String title = "Shift";
 	public static final int N_OBS = 10;
 	private static final String loc1 = "res/files/score_p1.txt";
-	private static final String loc2 = "res/files/socre_p2.txt";
+	private static final String loc2 = "res/files/score_p2.txt";
 	
 
 	private Thread thread;
