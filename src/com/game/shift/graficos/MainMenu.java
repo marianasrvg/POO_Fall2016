@@ -46,6 +46,7 @@ public class MainMenu extends JFrame implements ActionListener{
 		
 		play.addActionListener(this);
 		howTo.addActionListener(this);
+		scores.addActionListener(this);
 		
 		main.add(mainTitle);
 		main.add(ver);
@@ -71,7 +72,8 @@ public class MainMenu extends JFrame implements ActionListener{
 			
 		}
 		if(j.equals(scores)){
-			
+			new ScoresWindow(this).showScores();
+			this.setVisible(false);
 		}
 		
 	}
