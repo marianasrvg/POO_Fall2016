@@ -1,5 +1,6 @@
 package com.game.shift.graficos;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -36,6 +37,7 @@ public class ScoresWindow extends JFrame implements ActionListener {
 		this.setTitle("Scores");
 		this.setSize(900, 500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setBackground(Color.DARK_GRAY);
 		this.setResizable(false);
 		this.setUndecorated(false);
 		this.setLocationRelativeTo(null);
@@ -48,6 +50,7 @@ public class ScoresWindow extends JFrame implements ActionListener {
 		JPanel main = (JPanel) getContentPane();
 
 		main.setLayout(null);
+		main.setBackground(Color.DARK_GRAY);
 		score.setBounds(420, 15, 80, 30);
 		p1score.setBounds(250, 40, 100, 30);
 		p2score.setBounds(550, 40, 100, 30);

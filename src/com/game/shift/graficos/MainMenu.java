@@ -12,7 +12,7 @@ public class MainMenu extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel mainTitle = new JLabel("Keep the move!"); // Titulo del juego
-	private JLabel ver = new JLabel("ver 0.03.3"); //Version del juego
+	private JLabel ver = new JLabel("ver 0.1"); //Version del juego
 	private JButton play = new JButton("PLAY!"); //Boton para jugar
 	private JButton howTo = new JButton("How to play"); //Boton para saber como se juega
 	private JButton bye = new JButton("Exit game"); //Boton para salir del juego
