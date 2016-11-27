@@ -40,9 +40,12 @@ public class MainMenu extends JFrame implements ActionListener{
 		//mainTitle.setFont();
 		ver.setBounds(820, 450, 80, 30);
 		play.setBounds(400, 200, 80, 50);
+		play.setBackground(Color.LIGHT_GRAY);
 		howTo.setBounds(375, 260, 130, 50);
+		howTo.setBackground(Color.LIGHT_GRAY);
 		bye.setBounds(400, 400, 80, 50);
 		scores.setBounds(365, 320, 150, 50);
+		scores.setBackground(Color.LIGHT_GRAY);
 		
 		play.addActionListener(this);
 		howTo.addActionListener(this);
