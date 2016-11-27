@@ -7,6 +7,10 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class MainMenu extends JFrame implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel mainTitle = new JLabel("Keep the move!"); // Titulo del juego
 	private JLabel ver = new JLabel("0.03.2"); //Version del juego
 	private JButton play = new JButton("PLAY!"); //Boton para jugar
@@ -21,8 +25,7 @@ public class MainMenu extends JFrame implements ActionListener{
 		this.setResizable(false);
 		this.setUndecorated(false);
 		this.setLocationRelativeTo(null);
-		
-		
+		this.initComponents();
 		this.setVisible(true);
 		
 	}
@@ -33,12 +36,13 @@ public class MainMenu extends JFrame implements ActionListener{
 		
 		main.setLayout(null);
 		main.setBackground(Color.DARK_GRAY);
-		mainTitle.setBounds(400, 50, 80, 140);
+		mainTitle.setBounds(400, 50, 130, 140);
+		//mainTitle.setFont();
 		ver.setBounds(850, 450, 80, 30);
 		play.setBounds(400, 200, 80, 50);
-		howTo.setBounds(400, 260, 80, 50);
-		bye.setBounds(400, 320, 80, 50);
-		scores.setBounds(400, 400, 80, 50);
+		howTo.setBounds(375, 260, 130, 50);
+		bye.setBounds(400, 400, 80, 50);
+		scores.setBounds(365, 320, 150, 50);
 		
 		play.addActionListener(this);
 		howTo.addActionListener(this);
@@ -56,11 +60,17 @@ public class MainMenu extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JButton j = (JButton) e.getSource();
 		if(j.equals(play)){
-			new Background();
+			new Background().start();
+			this.setVisible(false);
 		}
 		if(j.equals(howTo)){
+			new HowToWindow(this).setHelpVisible();
+			this.setVisible(false);
 			
 		}if(j.equals(bye)){
+			
+		}
+		if(j.equals(scores)){
 			
 		}
 		
