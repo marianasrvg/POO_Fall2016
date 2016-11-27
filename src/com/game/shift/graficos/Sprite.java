@@ -19,6 +19,7 @@ public class Sprite {
 	public static Sprite bonus_t = new Sprite(6,0,0,SpriteSheet.bonus, 6);
 	public static Sprite contorno = new Sprite(16,0,2, SpriteSheet.tiles, 1);
 	public static Sprite arrow = new Sprite(16, 0, 3, SpriteSheet.tiles, 8);
+	public static Sprite player_b = new Sprite(16, 2, 3, SpriteSheet.tiles, 6);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet, int id){
 		SIZE = size;

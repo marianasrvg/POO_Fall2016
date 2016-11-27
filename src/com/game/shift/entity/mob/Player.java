@@ -12,7 +12,8 @@ public class Player extends Bonus {
 	protected boolean take = false;
 	protected boolean arrBonus[] = {false, false, false};
 	public static int mPoints = 100;
-	public static Sprite player_b = new Sprite(8, 0, 1, SpriteSheet.player, 5);
+	private int lessP = -10;
+	
 	
 	public Player(Keyboard input, Background world, Sprite sprite){
 		this.input = input;
@@ -39,7 +40,7 @@ public class Player extends Bonus {
 			switch(dir){
 				case 0:
 					if(screen.pixels[x+(y-vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-						setPoints(-10);
+						lessPoint();
 						return true;
 					}
 					break;
@@ -47,7 +48,7 @@ public class Player extends Bonus {
 				//	for(int z = 0; z < vx; z++){ con esto podriamos checar con el cambio de velocidad
 					for(int i = 0; i < Sprite.player.SIZE; i++){
 							if(screen.pixels[(x+i+vx)+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-								setPoints(-10);
+								lessPoint();
 								return true;
 							}
 					}
@@ -56,14 +57,14 @@ public class Player extends Bonus {
 				case 2:
 					for(int i = 0; i < Sprite.player.SIZE; i++){
 						if(screen.pixels[x+(y+i+vy)*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-							setPoints(-10);
+							lessPoint();
 							return true;
 						}
 					}
 					break;
 				case 3:
 					if(screen.pixels[(x-vx)+y*Background.width_p] == SpriteSheet.COLORES[world.barra.sprite.id]){
-						setPoints(-10);
+						lessPoint();
 						return true;
 					}
 					break;		
@@ -101,11 +102,13 @@ public class Player extends Bonus {
 		if(taken){
 			int rand = (int)(Math.random() * (3));
 			arrBonus[rand] = true;
+			this.setSprite(Sprite.player);
+			setlessP(-10);
 		}
 	}
 
 	public void render(Screen screen){
-		screen.renderMob(x, y, sprite, 8);
+		screen.renderMob(x, y, sprite, sprite.SIZE);
 	}
 
 	public void move(int xa, int ya, Screen screen){
@@ -125,6 +128,34 @@ public class Player extends Bonus {
 	
 	protected void bonusBarra(){}
 	
-	
+	protected void checkBonus(){
+		if(arrBonus[0]){
+			this.setSprite(Sprite.player_b);
+			arrBonus[0] = false;
+			setlessP(0);
+			world.tbonus.taken = false;
+			taken = false;
+		}
+		if(arrBonus[1]){
+			this.setPoints(10);
+			arrBonus[1] = false;
+			world.tbonus.taken = false;
+			taken = false;
+		}
+		if(arrBonus[2]){
+			bonusBarra();
+			arrBonus[2] = false;
+			world.tbonus.taken = false;
+			taken = false;
+		}		
+	}
 
+	private void WarningBonus(){}
+	private void lessPoint(){
+		setPoints(lessP);
+	}
+	
+	private void setlessP( int l){
+		lessP = l;
+	}
 }

@@ -31,32 +31,6 @@ public class PlayerTwo extends Player {
 		y = Background.height_p/2;
 	}
 	
-	protected void checkBonus(){
-		if(arrBonus[0]){
-			this.setSprite(Player.player_b);
-			arrBonus[0] = false;
-			taken = false;
-			System.out.println("2 - 1");
-			world.tbonus.taken = false;
-			taken = false;
-		}
-		if(arrBonus[1]){
-			this.setPoints(10);
-			arrBonus[1] = false;
-			taken = false;
-			System.out.println("2 - 2");
-			world.tbonus.taken = false;
-			taken = false;
-		}
-		if(arrBonus[2]){
-			bonusBarra();
-			arrBonus[2] = false;
-			taken = false;
-			System.out.println("2 - 3");
-			world.tbonus.taken = false;
-			taken = false;
-		}		
-	}
 	protected void bonusBarra(){
 		for ( int j = 1; j <= 20; j++){
 			world.barra.setXY(world.barra.x-1, world.barra.y);
