@@ -93,12 +93,7 @@ public class Player extends Bonus {
 					for(int j = 0; j < Sprite.player.SIZE; j++){
 						if(screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[world.obstacle_l[0].sprite.id] || 
 								screen.pixels[(x+j)+(y+i)*Background.width_p] == SpriteSheet.COLORES[world.obstacle_r[0].sprite.id] ){
-							if(!take && arrBonus[1]){
-								//No se modifican los puntos y eso asi que aqui no se manda a llamar la funcion
-								take = true;
-							}
 							if(!take){
-								//sdSystem.out.println("true");
 								setPoints(-1);
 								take = true;
 							}
