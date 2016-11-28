@@ -1,5 +1,6 @@
 package com.game.shift.graficos;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +23,7 @@ public class HowToWindow extends JFrame implements ActionListener{
 		this.setTitle("How should i play this?");
 		this.setSize(900,500);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+		//this.setBackground(Color.DARK_GRAY);
 		this.setResizable(false);
 		this.setUndecorated(false);
 		this.setLocationRelativeTo(null);
@@ -42,6 +43,7 @@ public class HowToWindow extends JFrame implements ActionListener{
 		String s = top + mid + bot + last;
 		*/
 		main.setLayout(null);
+		main.setBackground(Color.DARK_GRAY);
 		title.setBounds(400, 10, 80, 30);
 		instructions1.setBounds(300, 100, 250, 30);
 		instructions2.setBounds(300, 130, 350, 30);
