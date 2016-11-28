@@ -6,11 +6,8 @@ import com.game.shift.graficos.Sprite;
 import com.game.shift.graficos.SpriteSheet;
 
 public class Obstacle extends Mob {
-
 	private int lado_terreno = 1;
 	
-	
-
 	public Obstacle(int lado, Sprite sprite, Background world){
 		this.lado_terreno = lado;
 		setSprite(sprite);
@@ -23,18 +20,10 @@ public class Obstacle extends Mob {
 	}
 	
 	public void move(Screen screen){
-		if(vx > 0 && vy < 0) dir = 1;
-		if(vx < 0 && vy < 0) dir = 2;
-		if(vx < 0 && vy > 0) dir = 3;
-		if(vx > 0 && vy > 0) dir = 4;
-		
-		
 		if(collisionObstacle(screen)) {
 			vx*= -1;
 			vy *= -1;
 		}
-		//collision2(screen);
-		
 		if(collisionBarra(screen)) {
 			vx*= -1;
 		}
@@ -63,11 +52,11 @@ public class Obstacle extends Mob {
 	protected boolean collisionObstacle(Screen screen){
 		try{
 			
-			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[world.obstacle_l[0].sprite.id]) 
+			if(screen.pixels[(x)+(y)*Background.width_p] == SpriteSheet.COLORES[world.obstacle_l[0].sprite.id]) 
 				return true;
-			if(screen.pixels[x+y*Background.width_p] == SpriteSheet.COLORES[world.obstacle_r[0].sprite.id]) 
+			if(screen.pixels[(x)+(y)*Background.width_p] == SpriteSheet.COLORES[world.obstacle_r[0].sprite.id]) 
 				return true;
-			if(screen.pixels[(x+vx)+(y+vy)*Background.width_p] == SpriteSheet.COLORES[Sprite.player_b.id]) 
+			if(screen.pixels[(x)+(y)*Background.width_p] == SpriteSheet.COLORES[Sprite.player_b.id]) 
 				return true;
 		} catch (Exception e){
 			return true;
@@ -75,134 +64,6 @@ public class Obstacle extends Mob {
 		return false;
 	}
 	
-	protected void collision2(Screen screen){
-		try{
-			switch(dir){
-			case 1:
-				for(int i = 0; i < 2; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				for(int i = 0; i < 2; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				break;
-			case 2:
-				for(int i = 0; i < 2; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				for(int i = 0; i < 2; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				break;
-			case 3:
-				for(int i = 0; i < 2; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				for(int i = 0; i < 2; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				break;
-			case 4:
-				for(int i = 0; i < 2; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i-vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 0; j < 2; j++){
-						if(screen.pixels[(x+i+vx)+(y+j-vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vy *= -1;
-					}
-				}
-				for(int i = 0; i < 2; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i-vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				for(int i = 2; i < 4; i++){
-					for(int j = 2; j < 4; j++){
-						if(screen.pixels[(x+i+vx)+(y+j+vy)*Background.width_p] == 
-								SpriteSheet.COLORES[world.obstacle_l[0].sprite.id])
-							vx *= -1;
-					}
-				}
-				break;
-			}
-		}catch (Exception e){
-		}
-	}
-
 	private void posRandom(){
 		if(lado_terreno == 1){
 			x = (int)(Math.random()*(Sprite.BORDE - (Barra.posX-world.barra.sprite.SIZE)) + Barra.posX-Sprite.obstaculo_blue.SIZE);
