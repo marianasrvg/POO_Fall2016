@@ -51,6 +51,8 @@ public class MainMenu extends JFrame implements ActionListener{
 		howTo.addActionListener(this);
 		scores.addActionListener(this);
 		
+		Songs.menuSong();
+		
 		main.add(mainTitle);
 		main.add(ver);
 		main.add(play);
