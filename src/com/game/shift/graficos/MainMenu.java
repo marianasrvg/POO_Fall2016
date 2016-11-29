@@ -3,7 +3,10 @@ package com.game.shift.graficos;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 
 public class MainMenu extends JFrame implements ActionListener{
@@ -15,10 +18,10 @@ public class MainMenu extends JFrame implements ActionListener{
 	private JLabel ver = new JLabel("ver 0.1"); //Version del juego
 	private JButton play = new JButton("PLAY!"); //Boton para jugar
 	private JButton howTo = new JButton("How to play"); //Boton para saber como se juega
-	private JButton bye = new JButton("Exit game"); //Boton para salir del juego
+	//private JButton bye = new JButton("Exit game"); //Boton para salir del juego
 	private JButton scores = new JButton("High Scores"); //Boton para ver los 
 	
-	public MainMenu(){
+	public MainMenu() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		this.setTitle("Keep the Move!");
 		this.setSize(900,500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,11 +30,10 @@ public class MainMenu extends JFrame implements ActionListener{
 		this.setLocationRelativeTo(null);
 		this.initComponents();
 		this.setVisible(true);
-		
 	}
 
 	
-	private void initComponents(){
+	private void initComponents() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
 		JPanel main = (JPanel) getContentPane();
 		
 		main.setLayout(null);
@@ -43,7 +45,7 @@ public class MainMenu extends JFrame implements ActionListener{
 		play.setBackground(Color.LIGHT_GRAY);
 		howTo.setBounds(375, 260, 130, 50);
 		howTo.setBackground(Color.LIGHT_GRAY);
-		bye.setBounds(400, 400, 80, 50);
+		//bye.setBounds(400, 400, 80, 50);
 		scores.setBounds(365, 320, 150, 50);
 		scores.setBackground(Color.LIGHT_GRAY);
 		
@@ -51,14 +53,16 @@ public class MainMenu extends JFrame implements ActionListener{
 		howTo.addActionListener(this);
 		scores.addActionListener(this);
 		
-		Songs.menuSong();
 		
 		main.add(mainTitle);
 		main.add(ver);
 		main.add(play);
 		main.add(howTo);
-		main.add(bye);
+		//main.add(bye);
 		main.add(scores);
+		
+		
+		Songs.playSongMenu();
 	}
 	
 	
@@ -69,13 +73,13 @@ public class MainMenu extends JFrame implements ActionListener{
 			new Background().start();
 			this.setVisible(false);
 		}
+		
 		if(j.equals(howTo)){
 			new HowToWindow(this).setHelpVisible();
 			this.setVisible(false);
 			
-		}if(j.equals(bye)){
-			
 		}
+		
 		if(j.equals(scores)){
 			new ScoresWindow(this).showScores();
 			this.setVisible(false);

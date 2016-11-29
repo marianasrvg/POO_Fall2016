@@ -47,6 +47,7 @@ public class Background extends Canvas implements Runnable{
 	
 	private Screen screen;
 	
+	
 	public Background(){
 		Dimension size = new Dimension(width_p*scale, height_p*scale);
 		setPreferredSize(size);

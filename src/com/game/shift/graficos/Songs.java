@@ -1,32 +1,17 @@
 package com.game.shift.graficos;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
-public class Songs {
-	public static void menuSong(){
-		AudioPlayer menuPlayer = AudioPlayer.player;
-		AudioStream menuStream;
-		//AudioData MD;
-		
-		ContinuousAudioDataStream loop = null;
-		
-		try{
-			InputStream is = new FileInputStream("res/audio/mainmenu.wav");
-			menuStream = new AudioStream(is);
-			AudioPlayer.player.start(menuStream);
-		}catch(FileNotFoundException e){
-			System.out.println(e.toString());
-		}catch(IOException error){
-			System.out.println(error.toString());
-		}
-		menuPlayer.start(loop);
-		menuPlayer.stop(loop);
+public class Songs{
+	public static void playSongMenu() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+		AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("res/audio/mainmenu.wav"));
+		Clip song = AudioSystem.getClip();
+		song.open(inputStream);
+		song.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 }

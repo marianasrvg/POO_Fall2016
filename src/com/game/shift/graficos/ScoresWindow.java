@@ -41,9 +41,9 @@ public class ScoresWindow extends JFrame implements ActionListener {
 		this.setResizable(false);
 		this.setUndecorated(false);
 		this.setLocationRelativeTo(null);
+		mainM = main;
 		this.initComponents();
 		this.setVisible(true);
-		mainM = main;
 	}
 
 	private void initComponents() {

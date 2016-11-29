@@ -1,0 +1,31 @@
+ERROR - 17:46:44: java.net.MalformedURLException: unknown protocol: pathmap
+WARNING - 17:47:12: First conversion pass
+ERROR - 17:47:12: java.io.FileNotFoundException: /Shift_0.03.1/.classpath (No such file or directory)
+ERROR - 17:47:12: java.io.FileNotFoundException: /Shift_0.03.1/.classpath (No such file or directory)
+WARNING - 17:47:26: First conversion pass
+ERROR - 17:47:26: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:47:26: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+WARNING - 17:47:43: First conversion pass
+ERROR - 17:47:43: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:47:43: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+WARNING - 17:47:49: First conversion pass
+ERROR - 17:47:49: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:47:49: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+WARNING - 17:48:04: Convert com.game.shift
+WARNING - 17:48:04: First conversion pass
+ERROR - 17:48:04: java.net.MalformedURLException: unknown protocol: pathmap
+WARNING - 17:48:06: Convert com.game.shift
+WARNING - 17:48:06: First conversion pass
+ERROR - 17:48:06: java.net.MalformedURLException: unknown protocol: pathmap
+WARNING - 17:48:14: Convert com.game.shift
+WARNING - 17:48:14: First conversion pass
+ERROR - 17:48:14: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:48:14: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+WARNING - 17:48:16: Convert com.game.shift
+WARNING - 17:48:17: First conversion pass
+ERROR - 17:48:17: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:48:17: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+WARNING - 17:48:18: Convert com.game.shift
+WARNING - 17:48:18: First conversion pass
+ERROR - 17:48:18: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:48:18: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)

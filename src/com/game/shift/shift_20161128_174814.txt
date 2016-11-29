@@ -1,0 +1,11 @@
+WARNING - 17:48:14: First conversion pass
+ERROR - 17:48:14: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:48:14: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+WARNING - 17:48:16: Convert com.game.shift
+WARNING - 17:48:17: First conversion pass
+ERROR - 17:48:17: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:48:17: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+WARNING - 17:48:18: Convert com.game.shift
+WARNING - 17:48:18: First conversion pass
+ERROR - 17:48:18: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
+ERROR - 17:48:18: java.io.FileNotFoundException: /Shift_0.03.1/Shift_0.03.2/src/com/game/shift/Screen.java (No such file or directory)
